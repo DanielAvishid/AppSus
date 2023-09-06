@@ -6,8 +6,9 @@ const { useState, useEffect } = React
 const { Link } = ReactRouterDOM
 
 export function NoteIndex() {
-  const [notes, setNotes] = useState(null)
+  const [notes, setNotes] = useState([])
   //   const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
+  console.log(notes)
 
   useEffect(() => {
     noteService.query().then(notes => {
@@ -31,11 +32,20 @@ export function NoteIndex() {
       })
   }
 
-  function onRemoveNote(noteId) {
+  function updateNote(note) {
+    noteService.save(note)
+    noteService.query().then(notes => {
+      setNotes(notes)
+      console.log(notes)
+    })
+  }
+
+  function onRemoveNote(note) {
+    const noteId = note.id
     noteService
       .remove(noteId)
       .then(() => {
-        setNotes(prevNote => prevNote.filter(note => note.id !== noteId))
+        setNotes(prevNotes => prevNotes.filter(note => note.id !== noteId))
         // showSuccessMsg(`Book Removed! ${noteId}`)
       })
       .catch(err => {
@@ -44,13 +54,13 @@ export function NoteIndex() {
       })
   }
 
-  if (!notes) return <div>Loading...</div>
+  if (!notes.length) return <div>Loading...</div>
 
   return (
     <section>
       <NoteAdd onAddNote={onAddNote} />
       <div>note app</div>
-      <NoteList notes={notes} onRemoveNote={onRemoveNote} />
+      <NoteList notes={notes} updateNote={updateNote} onRemoveNote={onRemoveNote} />
     </section>
   )
 }

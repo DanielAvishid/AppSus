@@ -30,8 +30,8 @@ export function NoteAdd({ onAddNote }) {
   const { title, txt } = noteInfo.info
 
   return (
-    <section>
-      <form onSubmit={handleSubmit}>
+    <section className="note-add-container flex column align-center">
+      <form id="note-form" className="note-form flex column" onSubmit={handleSubmit}>
         <input
           value={title}
           onChange={handleChange}
@@ -48,8 +48,23 @@ export function NoteAdd({ onAddNote }) {
           id="txt"
           name="txt"
         />
-        <button>Add a note</button>
       </form>
+      {/* TODO: check why they are not seperate (btn-divs) */}
+      <div className="flex space-between align-center">
+        <div className="note-preview-btns">
+          <button>➕</button>
+          <button>📌</button>
+          <button>🎨</button>
+          <button>🔔</button>
+          <button>📷</button>
+          <button>⋮</button>
+        </div>
+        <div>
+          <button className="close-btn" type="submit" form="note-form">
+            Close
+          </button>
+        </div>
+      </div>
     </section>
   )
 }

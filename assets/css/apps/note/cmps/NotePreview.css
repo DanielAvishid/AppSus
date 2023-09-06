@@ -1,0 +1,33 @@
+.note-preview {
+  border: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  margin: 10px;
+  border-radius: 8px;
+  transition: 0.2s;
+  width: 240px; /* jusy for now */
+}
+
+.note-preview .note-preview-btns {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.note-preview-btns button {
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+}
+
+.note-preview:hover {
+  box-shadow: 0 1px 5px #b9b9b9;
+}
+
+.note-preview:hover .note-preview-btns {
+  opacity: 1;
+}
+
+.note-preview-btns button:hover {
+  background-color: #e0e0e0;
+}
