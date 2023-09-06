@@ -1,26 +1,18 @@
 // note service
 
-import { storageService } from '../../../services/storage.service.js'
-// import { storageService } from '../../../services/storage.service.js'
+import { localStorageService } from '../../../services/storage.service.js'
+import { storageService } from '../../../services/async-storage.service.js'
 import { noteData } from './note-data.js'
 
 const NOTES_KEY = 'notesDB'
 _createNotes()
-console.log('jii')
 
 export const noteService = {
   query,
-  //   get,
-  //   remove,
-  //   save,
-  //   getEmptyBook,
-  //   getEmptyReview,
-  //   getNextBookId,
-  //   getFilterBy,
-  //   setFilterBy,
-  //   getDefaultFilter,
-  //   addReview,
-  //   deleteReview,
+  get,
+  remove,
+  save,
+  getEmptyNote,
 }
 
 function query(filterBy = {}) {
@@ -40,32 +32,46 @@ function query(filterBy = {}) {
 }
 
 function _createNotes() {
-  let notes = storageService.loadFromStorage(NOTES_KEY)
-  console.log(notes)
+  let notes = localStorageService.loadFromStorage(NOTES_KEY)
   if (!notes || !notes.length) {
     notes = noteData.getNotes()
-    storageService.saveToStorage(NOTES_KEY, notes)
+    localStorageService.saveToStorage(NOTES_KEY, notes)
   }
 }
 
-// function get(bookId) {
-//   return storageService.get(BOOKS_KEY, bookId).then(book => {
-//     book = _setNextPrevCarId(book)
-//     return book
-//   })
-// }
+function get(noteId) {
+  return storageService.get(NOTES_KEY, noteId).then(note => {
+    // note = _setNextPrevCarId(note)
+    return note
+  })
+}
 
-// function remove(bookId) {
-//   return storageService.remove(BOOKS_KEY, bookId)
-// }
+function remove(noteId) {
+  return storageService.remove(NOTES_KEY, noteId)
+}
 
-// function save(book) {
-//   if (book.id) {
-//     return storageService.put(BOOKS_KEY, book)
-//   } else {
-//     return storageService.post(BOOKS_KEY, book)
-//   }
-// }
+function save(note) {
+  if (note.id) {
+    return storageService.put(NOTES_KEY, note)
+  } else {
+    return storageService.post(NOTES_KEY, note)
+  }
+}
+
+function getEmptyNote() {
+  return {
+    createdAt: Date.now(),
+    type: 'NoteTxt',
+    isPinned: false,
+    style: {
+      backgroundColor: '#00d',
+    },
+    info: {
+      title: '',
+      txt: '',
+    },
+  }
+}
 
 // function addReview(bookId, review) {
 //   review = { ...review }
@@ -101,25 +107,6 @@ function _createNotes() {
 //     fullname: '',
 //     rating: '',
 //     readAt: '',
-//   }
-// }
-
-// function getEmptyBook() {
-//   return {
-//     title: '',
-//     subtitle: '',
-//     authors: [],
-//     publishedDate: 1900,
-//     description: '',
-//     pageCount: 0,
-//     categories: [],
-//     thumbnail: '../assets/imgs/20.jpg',
-//     language: 'en',
-//     listPrice: {
-//       amount: 0,
-//       currencyCode: 'EUR',
-//       isOnSale: false,
-//     },
 //   }
 // }
 

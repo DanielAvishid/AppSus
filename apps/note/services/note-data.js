@@ -1,6 +1,8 @@
+import { utilService } from '../../../services/util.service.js'
+
 const noteDB = [
   {
-    id: 'n101',
+    id: utilService.makeId(),
     createdAt: 1112222,
     type: 'NoteTxt',
     isPinned: true,
@@ -8,31 +10,47 @@ const noteDB = [
       backgroundColor: '#00d',
     },
     info: {
+      title: 'Bobi and Me',
       txt: 'Fullstack Me Baby!',
     },
   },
   {
-    id: 'n102',
-    type: 'NoteImg',
-    isPinned: false,
-    info: {
-      url: 'http://some-img/me',
-      title: 'Bobi and Me',
-    },
+    id: utilService.makeId(),
+    createdAt: 1119999,
+    type: 'NoteTxt',
+    isPinned: true,
     style: {
       backgroundColor: '#00d',
     },
+    info: {
+      title: 'Bobi and Me',
+      txt: 'Fullstack Me Baby!',
+    },
   },
   {
-    id: 'n103',
-    type: 'NoteTodos',
+    id: utilService.makeId(),
+    createdAt: 11255533,
+    type: 'NoteTxt',
     isPinned: false,
+    style: {
+      backgroundColor: '#00d',
+    },
     info: {
-      title: 'Get my stuff together',
-      todos: [
-        { txt: 'Driving license', doneAt: null },
-        { txt: 'Coding power', doneAt: 187111111 },
-      ],
+      title: 'Bobi and Me',
+      txt: 'Fullstack Me Baby!',
+    },
+  },
+  {
+    id: utilService.makeId(),
+    createdAt: 1112222,
+    type: 'NoteTxt',
+    isPinned: true,
+    style: {
+      backgroundColor: '#00d',
+    },
+    info: {
+      title: 'Bobi and Me',
+      txt: 'Fullstack Me Baby!',
     },
   },
 ]
