@@ -42,6 +42,8 @@ function save(mail) {
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
+        mail.id = _makeId()
+        mail.sentAt = Date.now()
         return storageService.post(MAIL_KEY, mail)
     }
 }
@@ -93,5 +95,14 @@ function _setNextPrevMailId(mail) {
         mail.prevMailId = prevMail.id
         return mail
     })
+}
+
+function _makeId(length = 5) {
+    var text = ''
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+    for (var i = 0; i < length; i++) {
+        text += possible.charAt(Math.floor(Math.random() * possible.length))
+    }
+    return text
 }
 
