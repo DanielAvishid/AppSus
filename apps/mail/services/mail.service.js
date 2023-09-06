@@ -3,7 +3,6 @@ import { storageService } from '../../../services/async-storage.service.js'
 import { MailsData } from './mailsData.js'
 
 const MAIL_KEY = 'mailsDB'
-console.log('HI')
 _createMails()
 
 const loggedInUser = {
@@ -17,7 +16,8 @@ export const mailService = {
     remove,
     save,
     getEmptyMail,
-    getNextMailId
+    getNextMailId,
+    getUnreadMails
 }
 
 function query(filterBy) {
@@ -56,6 +56,12 @@ function getEmptyMail() {
         from: '',
         to: ''
     }
+}
+
+function getUnreadMails() {
+    return storageService.query(MAIL_KEY).then(mails => {
+        return mails.filter(mail => mail.isRead === false).length
+    })
 }
 
 function getNextMailId(mailId) {

@@ -3,7 +3,7 @@ const mailsDB = [
         id: 'e101',
         subject: 'Hello there!',
         body: 'I want to greet you for coming today',
-        isRead: false,
+        isRead: true,
         sentAt: 1551133930594,
         removedAt: null,
         from: 'soltan@momo.com',
@@ -31,7 +31,7 @@ const mailsDB = [
     }
 ]
 
-export const BooksData = {
+export const MailsData = {
     getMails
 }
 

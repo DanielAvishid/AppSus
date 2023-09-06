@@ -1,1 +1,7 @@
- /* mail list */
+.mail-list {
+    width: 100%;
+}
+
+.mail-list tbody tr.read {
+    background-color: #f2f6fc;
+}
