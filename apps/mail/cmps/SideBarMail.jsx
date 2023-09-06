@@ -1,12 +1,11 @@
-export function SideBarMail({ unreadMails }) {
+const { Link } = ReactRouterDOM
 
+export function SidebarMail({ unreadMails }) {
     return (
-        <section className="side-bar-mail">
-            <button>Compose</button>
+        <section className="SidebarMail">
+            <Link to={'/mail/list/new'}>Compose</Link>
             <div>
-                <button>Inbox {unreadMails}</button>
-                <button>Starred</button>
-                <button>Sent</button>
+                <Link to={`/mail/list`}>Inbox {unreadMails}</Link>
             </div>
         </section>
     )

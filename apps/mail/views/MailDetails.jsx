@@ -1,6 +1,4 @@
 import { mailService } from '../services/mail.service.js'
-import { SideBarMail } from '../cmps/SideBarMail.jsx'
-import { AppHeaderMail } from '../cmps/AppHeaderMail.jsx'
 
 const { useState, useEffect } = React
 const { useParams, useNavigate } = ReactRouterDOM
@@ -8,6 +6,7 @@ const { Link } = ReactRouterDOM
 
 export function MailDetails() {
     const [mail, setMail] = useState(null)
+    const [unReadMails, setUnReadMails] = useState(null)
     const { mailId } = useParams()
     const navigate = useNavigate()
 
@@ -16,20 +15,20 @@ export function MailDetails() {
             .then(setMail)
             .catch(err => {
                 console.log('err:', err)
-                navigate('/mail')
+                navigate('/mail/list')
             })
+        mailService.getUnreadMails()
+            .then(setUnReadMails)
     }, [mailId])
 
     function onBack() {
-        navigate('/mail')
+        navigate('/mail/list')
     }
 
     if (!mail) return <div>Loading...</div>
     return (
         <section className="mail-details">
-            <AppHeaderMail />
             <div className="flex">
-                {/* <SideBarMail /> */}
                 <div className="mail-container">
                     <div className="mail-header">
                         <button onClick={onBack}>Back</button>

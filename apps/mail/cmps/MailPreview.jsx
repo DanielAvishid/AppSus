@@ -1,22 +1,19 @@
 const { Fragment } = React
 
-export function MailPreview({ mail, onMailClick }) {
+export function MailPreview({ mail }) {
     return <Fragment>
-        <td>
-            <button>Star</button>
-        </td>
-        <td className="preview-from" onClick={() => onMailClick(mail.id)}>
+        <td className="preview-from">
             {mail.from}
         </td>
-        <td className="preview-content" onClick={() => onMailClick(mail.id)}>
+        <td className="preview-content">
             <span className="preview-subject">
                 {mail.subject}
             </span>
-            <span className="preview-body" onClick={() => onMailClick(mail.id)}>
+            <span className="preview-body">
                 {mail.body}
             </span>
         </td>
-        <td className="preview-sent-at" onClick={() => onMailClick(mail.id)}>
+        <td className="preview-sent-at">
             {mail.sentAt}
         </td>
     </Fragment>

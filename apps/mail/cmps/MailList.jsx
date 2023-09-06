@@ -1,9 +1,10 @@
 import { MailPreview } from './MailPreview.jsx'
 
 const { useNavigate } = ReactRouterDOM
-const { Link } = ReactRouterDOM
+const { Outlet, useOutletContext } = ReactRouterDOM
 
-export function MailList({ mails }) {
+export function MailList() {
+    const [mails, onComposeMail, onRemoveMail] = useOutletContext()
     const navigate = useNavigate()
 
     function onMailClick(mailId) {
@@ -16,15 +17,24 @@ export function MailList({ mails }) {
     }
 
     return (
-        <table className="mail-list">
-            <tbody>
-                {mails.map(mail => (
-                    <tr key={mail.id} className={readOrUnread(mail.isRead)}>
-                        <MailPreview mail={mail} onMailClick={onMailClick} />
-                    </tr>
-                ))}
-            </tbody>
-        </table>
+        <section className="mail-list">
+            <Outlet context={onComposeMail} />
+            <table className="mail-table">
+                <tbody>
+                    {mails.map(mail => (
+                        <tr key={mail.id} className={readOrUnread(mail.isRead)}>
+                            <td>
+                                <button>Star</button>
+                            </td>
+                            <MailPreview mail={mail} />
+                            <td onClick={() => onRemoveMail(mail.id)}>
+                                <button >Remove</button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </section>
 
     )
 }

@@ -51,9 +51,9 @@ function getEmptyMail() {
         subject: '',
         body: '',
         isRead: false,
-        sentAt: '',
-        removedAt: '',
-        from: '',
+        sentAt: null,
+        removedAt: null,
+        from: 'user@appsus.com',
         to: ''
     }
 }
