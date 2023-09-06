@@ -1,0 +1,37 @@
+/* add something */
+.note-add-container {
+  position: relative;
+  max-width: 600px;
+  left: 50%; /* Adjust this value to horizontally center the buttons */
+  transform: translate(-50%); /* Center the buttons */
+  margin: 10px 0;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px #9b9b9b;
+  border-radius: 8px;
+}
+
+.note-form {
+  width: 100%;
+  margin: 10px;
+}
+
+.note-form > * {
+  width: 95%;
+  padding: 5px;
+  border: none;
+  margin: 5px 10px 5px;
+}
+
+.note-form input:focus {
+  outline: none;
+}
+
+.close-btn {
+  border: none;
+  background-color: transparent;
+  padding: 8px 24px;
+}
+
+.close-btn:hover {
+  background-color: #f1f0f0;
+}
