@@ -1,4 +1,3 @@
-import { func } from 'prop-types'
 import { NotePreview } from './NotePreview.jsx'
 
 const { Outlet, useOutletContext } = ReactRouterDOM
