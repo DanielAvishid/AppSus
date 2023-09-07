@@ -1,6 +1,7 @@
+import { func } from 'prop-types'
 import { NotePreview } from './NotePreview.jsx'
 
-// const { Link } = ReactRouterDOM
+const { Outlet, useOutletContext } = ReactRouterDOM
 
 export function NoteList({ notes, updateNote, onRemoveNote }) {
   const pinnedNotes = notes.filter(note => note.isPinned === true)
