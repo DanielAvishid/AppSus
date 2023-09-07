@@ -1,13 +1,18 @@
 const { useState } = React
 
-export function MailPreview({ mail, readOrUnread, onMailClick, hoverOrNot }) {
+export function MailPreview({ mail, readOrUnread, onMailClick, hoverOrNot, onRemoveMail }) {
     const [isHover, setIsHover] = useState(false)
 
     return <tr className={`tr-container ${hoverOrNot(isHover)} ${readOrUnread(mail.isRead)}`}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         onClick={() => onMailClick(mail.id)}>
-        <td className={"preview-from"}>
+        <td className="preview-star">
+            <span className="material-symbols-outlined">
+                star
+            </span>
+        </td>
+        <td className="preview-from">
             {mail.from}
         </td>
         <td className="preview-content">
@@ -16,11 +21,20 @@ export function MailPreview({ mail, readOrUnread, onMailClick, hoverOrNot }) {
             </span>
             <span className="between-span">-</span>
             <span className="preview-body">
-                {mail.body}
+                {(mail.body.length <= 90 && mail.body) ||
+                    (mail.body.substring(0, 90) + ' ...')}
             </span>
         </td>
-        <td className="preview-sent-at">
+        {!isHover && <td className="preview-sent-at">
             {mail.sentAt}
-        </td>
+        </td>}
+        {isHover && <td className="preview-tools flex justify-end">
+            <span className="material-symbols-outlined" onClick={() => onRemoveMail(mail.id)}>
+                delete
+            </span>
+            <span className="material-symbols-outlined">
+                mail
+            </span>
+        </td>}
     </tr>
 }

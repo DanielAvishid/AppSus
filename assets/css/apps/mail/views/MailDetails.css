@@ -1,6 +1,14 @@
 .MailDetails {
+    background-color: #fff;
+    padding-block: 20px;
     border-radius: 16px;
+    border: #fff;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     width: 100%;
+    margin-inline-end: 10px;
 }
 
 .MailDetails .mail-header {
