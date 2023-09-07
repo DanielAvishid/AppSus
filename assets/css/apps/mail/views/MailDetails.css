@@ -1,0 +1,24 @@
+.MailDetails {
+    border-radius: 16px;
+    width: 100%;
+}
+
+.MailDetails .mail-header {
+    padding-block: 10px;
+    padding-inline-start: 10px;
+    padding-inline-end: 2rem;
+}
+
+.MailDetails h2 {
+    padding-inline-start: 4rem;
+    padding-block: 20px;
+}
+
+.MailDetails .container {
+    padding-inline-start: 4rem;
+    padding-inline-end: 2rem;
+}
+
+.MailDetails p {
+    padding-inline-start: 4rem;
+}

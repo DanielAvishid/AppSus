@@ -1,0 +1,33 @@
+.preview-sent-at,
+.remove-mail {
+    text-align: end;
+    width: 200px;
+}
+
+.between-span {
+    margin-inline: 10px;
+}
+
+.preview-body,
+.preview-sent-at {
+    color: #5f6368;
+}
+
+.preview-subject,
+.preview-from {
+    color: #202124;
+}
+
+tr.non-read .preview-subject,
+tr.non-read .preview-from,
+tr.non-read .preview-sent-at {
+    font-weight: 700;
+}
+
+.material-symbols-outlined {
+    cursor: pointer;
+}
+
+.preview-from.hovered {
+    background-color: blue;
+}

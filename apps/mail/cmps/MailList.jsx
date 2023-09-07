@@ -16,21 +16,25 @@ export function MailList() {
         if (!isRead) return 'non-read'
     }
 
+    function hoverOrNot(isHover) {
+        if (isHover) return 'hovered'
+        if (!isHover) return 'non-hovered'
+    }
+
     return (
         <section className="mail-list">
             <Outlet context={onComposeMail} />
+            <section>
+                <select name="" id="">
+                    <option value="all">All</option>
+                    <option value="read">Read</option>
+                    <option value="un-read">Unread</option>
+                </select>
+            </section>
             <table className="mail-table">
                 <tbody>
                     {mails.map(mail => (
-                        <tr key={mail.id} className={readOrUnread(mail.isRead)}>
-                            <td>
-                                <button>Star</button>
-                            </td>
-                            <MailPreview mail={mail} />
-                            <td onClick={() => onRemoveMail(mail.id)}>
-                                <button >Remove</button>
-                            </td>
-                        </tr>
+                        <MailPreview key={mail.id} mail={mail} readOrUnread={readOrUnread} onMailClick={onMailClick} hoverOrNot={hoverOrNot} />
                     ))}
                 </tbody>
             </table>

@@ -2,9 +2,11 @@ const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeaderMail() {
 
-    return <header className="app-header">
+    return <header className="app-header-mail">
         <div className="flex">
-            <button>=</button>
+            <span className="material-symbols-outlined">
+                menu
+            </span>
             <Link to="/">
                 <h3>LOGO!</h3>
             </Link>

@@ -18,7 +18,8 @@ export function MailIndex() {
             })
     }, [])
 
-    function onRemoveMail(mailId) {
+    function onRemoveMail(ev, mailId) {
+        ev.stopPropagation()
         mailService.remove(mailId)
             .then(() => {
                 setMails(prevMails => prevMails.filter(mail => mail.id !== mailId))
@@ -28,10 +29,9 @@ export function MailIndex() {
             })
     }
 
-    function onComposeMail(newMail) {
-        mailService.save(newMail)
-            .then(() => {
-                console.log()
+    function onComposeMail(mail) {
+        mailService.save(mail)
+            .then(newMail => {
                 setMails(prevMails => [...prevMails, newMail])
             })
             .catch(err => {

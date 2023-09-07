@@ -1,5 +1,13 @@
 .mail-list {
+    background-color: #fff;
+    padding-block: 20px;
+    border: #fff;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     width: 100%;
+    margin-inline-end: 10px;
 }
 
 .mail-table {
@@ -13,11 +21,12 @@
 .mail-table {
     border-collapse: collapse;
     border-spacing: 0;
-    font: normal 13px Arial, sans-serif;
+    font: normal 14px Arial, sans-serif;
+    font-weight: 400;
 }
 
 .mail-table tbody tr {
-
+    position: relative;
     border-bottom: solid 1px #e1e7ee;
 }
 
@@ -30,4 +39,28 @@
     color: #333;
     padding: 10px;
     text-shadow: 1px 1px 1px #fff;
+}
+
+.mail-table tr button {
+    z-index: 10;
+}
+
+.hover-td {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+}
+
+.hover-td.hovered {
+    opacity: 1;
+}
+
+.material-symbols-outlined {
+    color: #202124;
+    font-size: 20px;
+    opacity: 0.3;
+}
+
+.material-symbols-outlined.hovered {
+    opacity: 1;
 }
