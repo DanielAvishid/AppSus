@@ -32,7 +32,7 @@ export function MailPreview({ mail, readOrUnread, onMailClick, hoverOrNot, onRem
             <span className="material-symbols-outlined" onClick={() => onRemoveMail(mail.id)}>
                 delete
             </span>
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
                 mail
             </span>
         </td>}
