@@ -3,7 +3,7 @@ import { NoteAdd } from '../cmps/NoteAdd.jsx'
 import { noteService } from '../services/note.service.js'
 
 const { useState, useEffect } = React
-const { Link } = ReactRouterDOM
+const { Outlet } = ReactRouterDOM
 
 export function NoteIndex() {
   const [notes, setNotes] = useState([])
@@ -60,6 +60,7 @@ export function NoteIndex() {
     <section>
       <NoteAdd onAddNote={onAddNote} />
       <NoteList notes={notes} updateNote={updateNote} onRemoveNote={onRemoveNote} />
+      <Outlet context={updateNote} />
     </section>
   )
 }

@@ -1,8 +1,10 @@
+const { useNavigate } = ReactRouterDOM
 const { useState, useEffect } = React
 
 export function NotePreview({ note, updateNote, onRemoveNote }) {
   const [isPalleteOpen, setIsPalleteOpen] = useState(false)
   const [noteBgc, setNoteBgc] = useState(note.style.backgroundColor)
+  const navigate = useNavigate()
 
   function onTogglePin(note) {
     note.isPinned = !note.isPinned
@@ -11,6 +13,10 @@ export function NotePreview({ note, updateNote, onRemoveNote }) {
 
   function onTogglePallete() {
     setIsPalleteOpen(!isPalleteOpen)
+  }
+  function onNoteClick(noteId) {
+    console.log('click on note', noteId)
+    navigate(`/note/${noteId}`)
   }
 
   function onChangeNoteBgc(color, note) {
@@ -22,7 +28,7 @@ export function NotePreview({ note, updateNote, onRemoveNote }) {
   }
 
   return (
-    <article className="note-preview-container">
+    <article className="note-preview-container" onClick={() => onNoteClick(note.id)}>
       <div className={`note-preview flex column justify-center ${noteBgc}`}>
         {note.info.url && <img src={note.info.url} alt="user-pic" />}
         {note.info.title && <h4 className="note-title">{note.info.title}</h4>}
@@ -37,6 +43,7 @@ export function NotePreview({ note, updateNote, onRemoveNote }) {
           <button>⋮</button>
         </section>
       </div>
+
       {isPalleteOpen && (
         <div className="color-pallete flex">
           <button className="transparent" onClick={() => onChangeNoteBgc('transparent', note)}>
