@@ -7,16 +7,17 @@ const { Outlet } = ReactRouterDOM
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
+    const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
 
     useEffect(() => {
-        mailService.query()
+        mailService.query(filterBy)
             .then(mails => {
                 setMails(mails)
             })
             .catch(err => {
                 console.error(err)
             })
-    }, [])
+    }, [filterBy])
 
     function onRemoveMail(ev, mailId) {
         ev.stopPropagation()
@@ -26,6 +27,20 @@ export function MailIndex() {
             })
             .catch(err => {
                 console.error(err)
+            })
+    }
+
+    function setUnreadOrRead(ev, mail, isRead) {
+        ev.stopPropagation()
+        mail.isRead = !isRead
+        const mailId = mail.id
+        mailService.save(mail)
+            .then(updatedMail => {
+                setMails(prevMails => {
+                    const prevMailIdx = prevMails.findIndex(mail => mail.id === mailId)
+                    prevMails.splice(prevMailIdx, 1, updatedMail)
+                    return [...prevMails]
+                })
             })
     }
 
@@ -40,7 +55,12 @@ export function MailIndex() {
     }
 
     function getUnreadMails() {
-        return mails.length
+        return mails.filter(mail => mail.isRead === false).length
+    }
+
+    function onSetFilterBy(value) {
+        console.log(value)
+        setFilterBy(prevFilter => ({ ...prevFilter, isRead: value }))
     }
 
     if (!mails) return <div>Loading...</div>
@@ -49,7 +69,7 @@ export function MailIndex() {
             <AppHeaderMail />
             <div className="flex">
                 <SidebarMail unreadMails={getUnreadMails()} />
-                <Outlet context={[mails, onComposeMail, onRemoveMail]} />
+                <Outlet context={[mails, onComposeMail, onRemoveMail, setUnreadOrRead, filterBy, onSetFilterBy]} />
             </div>
         </section >
     )

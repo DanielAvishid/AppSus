@@ -1,23 +1,42 @@
 .SidebarMail {
     font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-    height: 90vh;
-    min-width: 17rem;
+    height: 92vh;
+    min-width: 16rem;
     background-color: #f6f8fc;
 }
 
 .SidebarMail .compose-btn {
     margin-inline: 10px;
-    max-width: 150px;
-    height: 4rem;
+    max-width: 140px;
+    height: 56px;
     line-height: 4rem;
     border-radius: 16px;
     text-align: center;
-    margin-block: 20px;
+    margin-block-end: 20px;
     background-color: #c2e7ff;
-    box-shadow: 0 1px 2px 0 #0000, 0 1px 3px 1px #0000;
+    transition: box-shadow .08s linear, min-width .15s cubic-bezier(0.4, 0, 0.2, 1)
 }
 
-.SidebarMail .inbox-btn {
+.SidebarMail .compose-btn:hover {
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302), 0 1px 3px 1px rgba(60, 64, 67, 0.149);
+    -webkit-font-smoothing: antialiased
+}
+
+.compose-btn .compose-title {
+    margin-inline-start: 17px;
+}
+
+.compose-btn span {
+    font-size: 14px;
+}
+
+.SidebarMail .inbox-btn,
+.SidebarMail .starred-btn,
+.SidebarMail .sent-btn,
+.SidebarMail .drafts-btn,
+.SidebarMail .trash-btn {
+    height: 2rem;
+    font-size: 14px;
     margin: 0;
     margin-inline-end: 1.3rem;
     padding-inline-start: 2rem;
@@ -26,11 +45,23 @@
 }
 
 .SidebarMail .inbox-btn .unread-mails {
+    align-self: center;
     padding-inline-end: 15px;
 }
 
 .SidebarMail .inbox-btn.active {
     text-decoration: none;
-    padding-block: 10px;
     background-color: #d3e3fd;
+}
+
+.SidebarMail .material-symbols-outlined {
+    margin-inline-end: 1rem;
+    height: 20px;
+    font-size: 20px;
+}
+
+.SidebarMail .compose-btn .material-symbols-outlined {
+    font-size: 1.5rem;
+    margin-inline-end: 0px;
+    margin-block-end: 4px;
 }

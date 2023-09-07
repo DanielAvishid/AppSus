@@ -17,11 +17,18 @@ export const mailService = {
     save,
     getEmptyMail,
     getNextMailId,
-    getUnreadMails
+    getUnreadMails,
+    getDefaultFilter
 }
 
 function query(filterBy) {
     return storageService.query(MAIL_KEY).then(mails => {
+        console.log(filterBy)
+        if (filterBy.isRead === 'true') {
+            mails = mails.filter(mails => mails.isRead === true)
+        } else if (filterBy.isRead === false) {
+            mails = mails.filter(mails => mails.isRead === false)
+        }
         return mails
     })
 }
@@ -74,7 +81,7 @@ function getNextMailId(mailId) {
 }
 
 function getDefaultFilter() {
-    return { txt: '', isRead: '', isStared: '' }
+    return { status: 'inbox', txt: '', isRead: '', isStared: null, labels: [] }
 }
 
 function _createMails() {
@@ -96,12 +103,4 @@ function _setNextPrevMailId(mail) {
     })
 }
 
-function _makeId(length = 5) {
-    var text = ''
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    for (var i = 0; i < length; i++) {
-        text += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return text
-}
 
