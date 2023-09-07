@@ -1,3 +1,7 @@
+.material-symbols-outlined {
+    cursor: pointer;
+}
+
 .preview-sent-at,
 .remove-mail {
     text-align: end;
@@ -24,10 +28,22 @@ tr.non-read .preview-sent-at {
     font-weight: 700;
 }
 
-.material-symbols-outlined {
-    cursor: pointer;
+.preview-star {
+    width: 5%;
 }
 
-.preview-from.hovered {
-    background-color: blue;
+.preview-from {
+    width: 15%;
+}
+
+.preview-content {
+    width: 70%;
+}
+
+.preview-sent-at {
+    width: 10%;
+}
+
+.preview-tools span {
+    margin-inline-end: 1.3rem;
 }

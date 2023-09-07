@@ -34,7 +34,12 @@ export function MailList() {
             <table className="mail-table">
                 <tbody>
                     {mails.map(mail => (
-                        <MailPreview key={mail.id} mail={mail} readOrUnread={readOrUnread} onMailClick={onMailClick} hoverOrNot={hoverOrNot} />
+                        <MailPreview key={mail.id}
+                            mail={mail}
+                            readOrUnread={readOrUnread}
+                            onMailClick={onMailClick}
+                            hoverOrNot={hoverOrNot}
+                            onRemoveMail={onRemoveMail} />
                     ))}
                 </tbody>
             </table>
