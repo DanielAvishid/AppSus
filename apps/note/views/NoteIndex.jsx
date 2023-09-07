@@ -17,14 +17,15 @@ export function NoteIndex() {
     })
   }, [])
 
-  // TODO : see why notes.map isnt working well in NoteAdd (the note added to the DB!)
+  // TODO : see why thats isnt working well in NoteAdd (the note added to the DB!)
   function onAddNote(noteToAdd) {
     console.log('note to add', noteToAdd)
+    noteService.save(noteToAdd)
     noteService
-      .save(noteToAdd)
-      .then(updatedNotes => {
-        setNotes(updatedNotes)
-        // showSuccessMsg('Review saved successfully')
+      .query()
+      .then(notes => {
+        setNotes(notes)
+        console.log(notes)
       })
       .catch(err => {
         console.log('err:', err)
@@ -54,11 +55,12 @@ export function NoteIndex() {
       })
   }
 
+  console.log(notes)
   if (!notes.length) return <div>Loading...</div>
 
   return (
-    <section>
-      <NoteAdd onAddNote={onAddNote} />
+    <section className="relative">
+      <NoteAdd onAddNote={onAddNote} getEmptyNote={noteService.getEmptyNote} />
       <NoteList notes={notes} updateNote={updateNote} onRemoveNote={onRemoveNote} />
       <Outlet context={updateNote} />
     </section>

@@ -1,12 +1,14 @@
 const { useState, useEffect } = React
+// const { useParams, useNavigate } = ReactRouterDOM
+// const { useOutletContext } = ReactRouterDOM
 
-export function NoteAdd({ onAddNote, getEmptyNote }) {
-  const [noteInfo, setNoteInfo] = useState(getEmptyNote())
+export function NoteEdit({ note }) {
+  const [updatedNote, setUpdatedNote] = useState(note)
 
   function handleSubmit(ev) {
     console.log(ev)
     ev.preventDefault()
-    onAddNote(noteInfo)
+    onAddNote(note)
   }
 
   function handleChange({ target }) {
@@ -23,19 +25,24 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
       default:
         break
     }
-    setNoteInfo(prevInfo => ({ ...prevInfo, info: { ...prevInfo.info, [field]: value } }))
+
+    setUpdatedNote(prevNote => ({ ...prevNote, info: { ...prevNote.info, [field]: value } }))
   }
 
-  const { title, txt, url } = noteInfo.info
+  const { title, txt, url } = updatedNote.info
 
   return (
-    <section className="note-add-container flex column align-center">
-      <form id="note-form" className="note-form flex column" onSubmit={handleSubmit}>
+    <section>
+      <form
+        id="note-updated-form"
+        className="note-updated-form flex column"
+        onSubmit={handleSubmit}
+      >
         <input
           value={title}
           onChange={handleChange}
           type="text"
-          placeholder="Title"
+          placeholder="Enter a Title..."
           id="title"
           name="title"
         />
@@ -43,7 +50,7 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
           value={txt}
           onChange={handleChange}
           type="text"
-          placeholder="Take a note..."
+          placeholder="Fell free to enter whatever you want..."
           id="txt"
           name="txt"
         />
@@ -56,6 +63,7 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
           name="url"
         />
       </form>
+
       {/* TODO: check why they are not seperate (btn-divs) */}
       <div className="flex space-between align-center">
         <div className="note-preview-btns">
