@@ -19,7 +19,7 @@ export function MailCompose() {
     function onSubmitMail(ev) {
         ev.preventDefault()
         onComposeMail(mailToAdd)
-        navigate('/mail/list')
+        navigate('/mail/inbox')
     }
 
     return (
@@ -29,7 +29,7 @@ export function MailCompose() {
                 <div>
                     <button>-</button>
                     <button>{'>'}</button>
-                    <Link to='/mail/list'>X</Link>
+                    <Link to='/mail/inbox'>X</Link>
                 </div>
             </div>
             <form className='flex col' onSubmit={onSubmitMail}>

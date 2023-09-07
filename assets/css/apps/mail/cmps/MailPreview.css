@@ -1,9 +1,21 @@
-.material-symbols-outlined {
+.tr-container .material-symbols-outlined {
+    color: #444;
+    border: none;
+    border-radius: 50%;
+    padding: 8px;
     cursor: pointer;
 }
 
-.tr-container {
-    max-height: 45px;
+.tr-container .material-symbols-outlined:hover {
+    background-color: #dde3ec;
+}
+
+.tr-container.read {
+    background-color: #f2f6fc;
+}
+
+.tr-container:hover {
+    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15)
 }
 
 .preview-sent-at,
@@ -49,10 +61,5 @@ tr.non-read .preview-sent-at {
 }
 
 .preview-tools :first-child {
-    margin-inline-end: 1.3rem;
-}
-
-
-.preview-tools .material-symbols-outlined:hover {
-    box-shadow: 1px solid black;
+    margin-inline-end: .3rem;
 }

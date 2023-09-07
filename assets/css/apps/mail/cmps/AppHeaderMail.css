@@ -7,21 +7,14 @@
     border-bottom: none;
 }
 
-.app-header-mail input:focus {
-    background-color: #fff;
+.logo-container {
+    min-width: 17.4rem;
 }
 
-.main-search {
-    margin-inline-start: 10.8rem;
+.logo {
+    max-width: 40px;
 }
 
-.main-search input {
-    background-color: #eaf1fb;
-    border-bottom-left-radius: 24px;
-    border-bottom-right-radius: 24px;
-    border-top-left-radius: 24px;
-    border-top-right-radius: 24px;
-    width: 710px;
-    line-height: 27px;
-    min-height: 50px;
+.menu {
+    margin-inline: 10px;
 }

@@ -14,53 +14,10 @@
     width: 100%;
 }
 
-.mail-table tbody tr.read {
-    background-color: #f2f6fc;
-}
 
 .mail-table {
     border-collapse: collapse;
     border-spacing: 0;
     font: normal 14px Arial, sans-serif;
     font-weight: 400;
-}
-
-.mail-table tbody tr {
-    position: relative;
-    border-bottom: solid 1px #e1e7ee;
-}
-
-.mail-table tbody tr:hover {
-    box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60, 64, 67, .3), 0 1px 3px 1px rgba(60, 64, 67, .15)
-}
-
-
-.mail-table tbody td {
-    color: #333;
-    padding: 10px;
-    text-shadow: 1px 1px 1px #fff;
-}
-
-.mail-table tr button {
-    z-index: 10;
-}
-
-.hover-td {
-    position: absolute;
-    right: 0;
-    opacity: 0;
-}
-
-.hover-td.hovered {
-    opacity: 1;
-}
-
-.mail-list .material-symbols-outlined {
-    color: #202124;
-    font-size: 20px;
-    opacity: 0.3;
-}
-
-.material-symbols-outlined.hovered {
-    opacity: 1;
 }

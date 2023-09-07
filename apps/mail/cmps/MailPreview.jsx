@@ -34,7 +34,7 @@ export function MailPreview({ mail, readOrUnread, onMailClick, hoverOrNot, onRem
             {mail.sentAt}
         </td>}
         {isHover && <td className="preview-tools flex justify-end align-center">
-            <span className="material-symbols-outlined" onClick={(ev) => onRemoveMail(ev, mail.id)}>
+            <span title="Delete" className="material-symbols-outlined" onClick={(ev) => onRemoveMail(ev, mail.id)}>
                 delete
             </span>
             {!mail.isRead && <span title="Mark as read" className="material-symbols-outlined" onClick={(ev) => setUnreadOrRead(ev, mail, mail.isRead)}>

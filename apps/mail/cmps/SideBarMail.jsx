@@ -3,14 +3,14 @@ const { Link, NavLink } = ReactRouterDOM
 export function SidebarMail({ unreadMails }) {
     return (
         <section className="SidebarMail">
-            <Link className='compose-btn flex align-center justify-center' to={'/mail/list/new'}>
+            <Link className='compose-btn flex align-center justify-center' to={'/mail/inbox/new'}>
                 <span className="material-symbols-outlined">
                     edit
                 </span>
                 <span className='compose-title'>Compose</span>
             </Link>
             <nav>
-                <NavLink to={'/mail/list'} className='flex space-between inbox-btn'>
+                <NavLink to={'/mail/inbox'} className='flex space-between inbox-btn'>
                     <div className="flex align-center">
                         <span className="material-symbols-outlined">inbox</span>
                         <span>Inbox</span>

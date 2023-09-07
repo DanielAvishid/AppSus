@@ -4,7 +4,7 @@ const { useNavigate } = ReactRouterDOM
 const { Outlet, useOutletContext } = ReactRouterDOM
 
 export function MailList() {
-    const [mails, onComposeMail, onRemoveMail, setUnreadOrRead, filterBy, onSetFilterBy] = useOutletContext()
+    const [mails, onComposeMail, onRemoveMail, setUnreadOrRead] = useOutletContext()
     const navigate = useNavigate()
 
     function onMailClick(mailId) {
@@ -21,21 +21,9 @@ export function MailList() {
         if (!isHover) return 'non-hovered'
     }
 
-    function handleChange({ target }) {
-        let value = target.value
-        onSetFilterBy(value)
-    }
-
     return (
         <section className="mail-list">
             <Outlet context={onComposeMail} />
-            <section>
-                <select onChange={handleChange}>
-                    <option value="">All</option>
-                    <option value={true}>Read</option>
-                    <option value={false}>Unread</option>
-                </select>
-            </section>
             <table className="mail-table">
                 <tbody>
                     {mails.map(mail => (

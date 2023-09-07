@@ -3,13 +3,18 @@ import { SidebarMail } from '../cmps/SidebarMail.jsx'
 import { AppHeaderMail } from '../cmps/AppHeaderMail.jsx'
 
 const { useState, useEffect } = React
-const { Outlet } = ReactRouterDOM
+const { Outlet, useLocation } = ReactRouterDOM
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
+    const location = useLocation()
 
     useEffect(() => {
+        if (location.pathname === '/mail/sent') {
+            setFilterSent()
+            console.log(filterBy)
+        }
         mailService.query(filterBy)
             .then(mails => {
                 setMails(mails)
@@ -20,7 +25,9 @@ export function MailIndex() {
     }, [filterBy])
 
     function onRemoveMail(ev, mailId) {
-        ev.stopPropagation()
+        if (ev !== null) {
+            ev.stopPropagation()
+        }
         mailService.remove(mailId)
             .then(() => {
                 setMails(prevMails => prevMails.filter(mail => mail.id !== mailId))
@@ -58,15 +65,18 @@ export function MailIndex() {
         return mails.filter(mail => mail.isRead === false).length
     }
 
-    function onSetFilterBy(value) {
-        console.log(value)
-        setFilterBy(prevFilter => ({ ...prevFilter, isRead: value }))
+    function onSetFilterBy(filterBy) {
+        setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
+    }
+
+    function setFilterSent() {
+        setFilterBy(prevFilter => ({ ...prevFilter, status: sent }))
     }
 
     if (!mails) return <div>Loading...</div>
     return (
         <section className="mail-index">
-            <AppHeaderMail />
+            <AppHeaderMail filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
             <div className="flex">
                 <SidebarMail unreadMails={getUnreadMails()} />
                 <Outlet context={[mails, onComposeMail, onRemoveMail, setUnreadOrRead, filterBy, onSetFilterBy]} />

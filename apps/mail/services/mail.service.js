@@ -24,10 +24,19 @@ export const mailService = {
 function query(filterBy) {
     return storageService.query(MAIL_KEY).then(mails => {
         console.log(filterBy)
-        if (filterBy.isRead === 'true') {
-            mails = mails.filter(mails => mails.isRead === true)
-        } else if (filterBy.isRead === false) {
-            mails = mails.filter(mails => mails.isRead === false)
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            mails = mails.filter(mail => {
+                if (regex.test(mail.body) ||
+                    regex.test(mail.subject) ||
+                    regex.test(mail.from)
+                ) return true
+            })
+        }
+        if (filterBy.isRead === 'showRead') {
+            mails = mails.filter(mail => mail.isRead)
+        } else if (filterBy.isRead === 'showUnread') {
+            mails = mails.filter(mail => !mail.isRead)
         }
         return mails
     })
