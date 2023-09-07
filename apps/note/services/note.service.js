@@ -69,6 +69,7 @@ function getEmptyNote() {
     info: {
       title: '',
       txt: '',
+      url: '',
     },
   }
 }

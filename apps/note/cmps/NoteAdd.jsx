@@ -6,6 +6,7 @@ export function NoteAdd({ onAddNote }) {
   const [noteInfo, setNoteInfo] = useState(noteService.getEmptyNote())
 
   function handleSubmit(ev) {
+    console.log(ev)
     ev.preventDefault()
     onAddNote(noteInfo)
   }
@@ -27,7 +28,7 @@ export function NoteAdd({ onAddNote }) {
     setNoteInfo(prevInfo => ({ ...prevInfo, info: { ...prevInfo.info, [field]: value } }))
   }
 
-  const { title, txt } = noteInfo.info
+  const { title, txt, url } = noteInfo.info
 
   return (
     <section className="note-add-container flex column align-center">
@@ -48,6 +49,14 @@ export function NoteAdd({ onAddNote }) {
           id="txt"
           name="txt"
         />
+        <input
+          value={url}
+          onChange={handleChange}
+          type="text"
+          placeholder="You can also add a URL!"
+          id="url"
+          name="url"
+        />
       </form>
       {/* TODO: check why they are not seperate (btn-divs) */}
       <div className="flex space-between align-center">
@@ -60,6 +69,7 @@ export function NoteAdd({ onAddNote }) {
           <button>⋮</button>
         </div>
         <div>
+          {/* TODO: the submission should be execute just whenclick enter or clicking ouside of the form div  */}
           <button className="close-btn" type="submit" form="note-form">
             Close
           </button>

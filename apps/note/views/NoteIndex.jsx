@@ -59,7 +59,6 @@ export function NoteIndex() {
   return (
     <section>
       <NoteAdd onAddNote={onAddNote} />
-      <div>note app</div>
       <NoteList notes={notes} updateNote={updateNote} onRemoveNote={onRemoveNote} />
     </section>
   )

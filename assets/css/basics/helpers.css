@@ -1,31 +1,31 @@
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .flex.col {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .justify-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .align-center {
-    align-items: center;
+  align-items: center;
 }
 
 .space-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .grid {
-    display: grid;
+  display: grid;
 }
 
 .grid.flow-col {
-    grid-auto-flow: column;
+  grid-auto-flow: column;
 }
