@@ -1,1 +1,18 @@
- /* note list */
+/* note list */
+
+/* TODO - fix the spaces */
+
+.notes-container {
+  columns: 6 240px;
+  /* column-gap: 12px; */
+}
+
+.notes-container > h4 {
+  width: 100%;
+}
+
+/* .pinned-container,
+.unpinned-container {
+  width: fit-content;
+
+} */

@@ -2,6 +2,7 @@ const { useState, useEffect } = React
 
 export function NotePreview({ note, updateNote, onRemoveNote }) {
   const [isPalleteOpen, setIsPalleteOpen] = useState(false)
+  const [noteBgc, setNoteBgc] = useState(note.style.backgroundColor)
 
   function onTogglePin(note) {
     note.isPinned = !note.isPinned
@@ -10,13 +11,19 @@ export function NotePreview({ note, updateNote, onRemoveNote }) {
 
   function onTogglePallete() {
     setIsPalleteOpen(!isPalleteOpen)
-    console.log('hello')
-    console.log(isPalleteOpen)
+  }
+
+  function onChangeNoteBgc(color, note) {
+    console.log(note.style.backgroundColor)
+    note.style.backgroundColor = color
+    console.log(note.style.backgroundColor)
+    setNoteBgc(color)
+    updateNote(note)
   }
 
   return (
     <article className="note-preview-container">
-      <div className="note-preview flex column justify-center">
+      <div className={`note-preview flex column justify-center ${noteBgc}`}>
         {note.info.url && <img src={note.info.url} alt="user-pic" />}
         {note.info.title && <h4 className="note-title">{note.info.title}</h4>}
         {note.info.txt && <p className="note-txt">{note.info.txt}</p>}
@@ -25,17 +32,6 @@ export function NotePreview({ note, updateNote, onRemoveNote }) {
           <button onClick={() => onRemoveNote(note)}>🗑️</button>
           <button onClick={() => onTogglePin(note)}>📌</button>
           <button onClick={() => onTogglePallete()}>🎨</button>
-          {/* <select onChange={() => onChangeNoteBgc(note)}>
-          <option className="transparent" value="transparent">
-            🎨
-          </option>
-          <option className="lightblue" value="lightblue"></option>
-          <option className="lightgreen" value="lightgreen"></option>
-          <option className="lightpink" value="lightpink"></option>
-          <option className="lightcoral" value="lightcoral"></option>
-          <option className="lightsalmon" value="lightsalmon"></option>
-          <option className="lightseagreen" value="lightseagreen"></option>
-        </select> */}
           <button>🔔</button>
           <button>📷</button>
           <button>⋮</button>
@@ -43,12 +39,27 @@ export function NotePreview({ note, updateNote, onRemoveNote }) {
       </div>
       {isPalleteOpen && (
         <div className="color-pallete flex">
-          <button className="lightblue"></button>
-          <button className="lightgreen"></button>
-          <button className="lightpink"></button>
-          <button className="lightcoral"></button>
-          <button className="lightsalmon"></button>
-          <button className="lightseagreen"></button>
+          <button className="transparent" onClick={() => onChangeNoteBgc('transparent', note)}>
+            ✖
+          </button>
+          <button className="lightblue" onClick={() => onChangeNoteBgc('lightblue', note)}></button>
+          <button
+            className="lightgreen"
+            onClick={() => onChangeNoteBgc('lightgreen', note)}
+          ></button>
+          <button className="lightpink" onClick={() => onChangeNoteBgc('lightpink', note)}></button>
+          <button
+            className="lightcoral"
+            onClick={() => onChangeNoteBgc('lightcoral', note)}
+          ></button>
+          <button
+            className="lightsalmon"
+            onClick={() => onChangeNoteBgc('lightsalmon', note)}
+          ></button>
+          <button
+            className="lightseagreen"
+            onClick={() => onChangeNoteBgc('lightseagreen', note)}
+          ></button>
         </div>
       )}
     </article>
