@@ -3,18 +3,14 @@ import { SidebarMail } from '../cmps/SidebarMail.jsx'
 import { AppHeaderMail } from '../cmps/AppHeaderMail.jsx'
 
 const { useState, useEffect } = React
-const { Outlet, useLocation } = ReactRouterDOM
+const { Outlet } = ReactRouterDOM
 
 export function MailIndex() {
     const [mails, setMails] = useState(null)
+    const [unreadMails, setUnreadMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
-    const location = useLocation()
 
     useEffect(() => {
-        if (location.pathname === '/mail/sent') {
-            setFilterSent()
-            console.log(filterBy)
-        }
         mailService.query(filterBy)
             .then(mails => {
                 setMails(mails)
@@ -23,6 +19,16 @@ export function MailIndex() {
                 console.error(err)
             })
     }, [filterBy])
+
+    useEffect(() => {
+        mailService.query(mailService.getDefaultFilter())
+            .then(mails => {
+                setUnreadMails(mails.filter(mail => mail.isRead === false && mail.from !== mailService.getUserMail()).length)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+    }, [])
 
     function onRemoveMail(ev, mailId) {
         if (ev !== null) {
@@ -40,6 +46,12 @@ export function MailIndex() {
     function setUnreadOrRead(ev, mail, isRead) {
         ev.stopPropagation()
         mail.isRead = !isRead
+        if (mail.from !== mailService.getUserMail()) {
+            if (isRead) setUnreadMails(prevUnreadMails => prevUnreadMails + 1)
+            else {
+                setUnreadMails(prevUnreadMails => prevUnreadMails - 1)
+            }
+        }
         const mailId = mail.id
         mailService.save(mail)
             .then(updatedMail => {
@@ -52,17 +64,14 @@ export function MailIndex() {
     }
 
     function onComposeMail(mail) {
+        console.log(mail)
         mailService.save(mail)
-            .then(newMail => {
-                setMails(prevMails => [...prevMails, newMail])
+            .then(() => {
+                console.log('hi')
             })
             .catch(err => {
                 console.error(err)
             })
-    }
-
-    function getUnreadMails() {
-        return mails.filter(mail => mail.isRead === false).length
     }
 
     function onSetFilterBy(filterBy) {
@@ -76,9 +85,15 @@ export function MailIndex() {
     if (!mails) return <div>Loading...</div>
     return (
         <section className="mail-index">
-            <AppHeaderMail filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+            <AppHeaderMail
+                filterBy={filterBy}
+                onSetFilterBy={onSetFilterBy} />
             <div className="flex">
-                <SidebarMail unreadMails={getUnreadMails()} />
+                <SidebarMail
+                    unreadMails={unreadMails}
+                    setFilterSent={setFilterSent}
+                    onSetFilterBy={onSetFilterBy}
+                    filterBy={filterBy} />
                 <Outlet context={[mails, onComposeMail, onRemoveMail, setUnreadOrRead, filterBy, onSetFilterBy]} />
             </div>
         </section >

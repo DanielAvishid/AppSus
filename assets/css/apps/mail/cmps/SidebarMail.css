@@ -31,7 +31,7 @@
 .SidebarMail .inbox-btn,
 .SidebarMail .starred-btn,
 .SidebarMail .sent-btn,
-.SidebarMail .drafts-btn,
+.SidebarMail .draft-btn,
 .SidebarMail .trash-btn {
     height: 2.2rem;
     font-size: 1rem;
@@ -40,6 +40,7 @@
     padding-inline-start: 2rem;
     border-end-end-radius: 1.3rem;
     border-start-end-radius: 1.3rem;
+    cursor: pointer;
 }
 
 .SidebarMail .inbox-btn .unread-mails {
@@ -47,9 +48,21 @@
     padding-inline-end: 1rem;
 }
 
-.SidebarMail .inbox-btn.active {
+.SidebarMail .inbox-btn.active,
+.SidebarMail .starred-btn.active,
+.SidebarMail .sent-btn.active,
+.SidebarMail .draft-btn.active,
+.SidebarMail .trash-btn.active {
     text-decoration: none;
-    background-color: #d3e3fd;
+    background-color: #d3e3fd !important;
+}
+
+.SidebarMail .inbox-btn:hover,
+.SidebarMail .starred-btn:hover,
+.SidebarMail .sent-btn:hover,
+.SidebarMail .draft-btn:hover,
+.SidebarMail .trash-btn:hover {
+    background-color: #eaebef;
 }
 
 .SidebarMail .material-symbols-outlined {

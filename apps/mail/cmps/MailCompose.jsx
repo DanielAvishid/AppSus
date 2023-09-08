@@ -19,29 +19,26 @@ export function MailCompose() {
     function onSubmitMail(ev) {
         ev.preventDefault()
         onComposeMail(mailToAdd)
-        navigate('/mail/inbox')
+        navigate('/mail/list')
     }
 
     return (
         <section className="MailCompose flex col">
             <div className="header-compose flex space-between">
-                <h3>New Message</h3>
-                <div>
-                    <button>-</button>
-                    <button>{'>'}</button>
-                    <Link to='/mail/inbox'>X</Link>
-                </div>
+                <h3 className='compose-title'>New Message</h3>
+                <Link className='exit-btn' to='/mail/list'>
+                    <span className="material-symbols-outlined">close</span>
+                </Link>
             </div>
             <form className='flex col' onSubmit={onSubmitMail}>
                 <input type="email" onChange={handleChange} name='to' placeholder='To' />
 
-                <input type="text" onChange={handleChange} name="subject" placeholder="Subject" />
+                <input className='subject-input' type="text" onChange={handleChange} name="subject" placeholder="Subject" />
 
                 <textarea className='body-area' name="body" onChange={handleChange}>
 
                 </textarea>
 
-                {/* <input className='body-input' type="text" onChange={handleChange} name="body" /> */}
                 <button className='send-btn'>Send</button>
             </form>
         </section>

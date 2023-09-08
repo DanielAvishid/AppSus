@@ -16,12 +16,12 @@ export function MailDetails() {
             .then(setMail)
             .catch(err => {
                 console.log('err:', err)
-                navigate('/mail/inbox')
+                navigate('/mail/list')
             })
     }, [mailId])
 
     function onBack() {
-        navigate('/mail/inbox')
+        navigate('/mail/list')
     }
 
     function removeMail() {
@@ -46,7 +46,10 @@ export function MailDetails() {
                 </div>
                 <h2>{mail.subject}</h2>
                 <div className='container flex space-between'>
-                    <span>{mail.from}</span>
+                    <div className='flex col'>
+                        <span>From: {mail.from}</span>
+                        <span>To :{mail.to}</span>
+                    </div>
                     <div>
                         <span>{mail.sentAt}</span>
                         <button>Star</button>

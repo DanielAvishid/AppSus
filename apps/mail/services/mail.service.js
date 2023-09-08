@@ -18,12 +18,15 @@ export const mailService = {
     getEmptyMail,
     getNextMailId,
     getUnreadMails,
-    getDefaultFilter
+    getDefaultFilter,
+    getUserMail
 }
 
 function query(filterBy) {
     return storageService.query(MAIL_KEY).then(mails => {
-        console.log(filterBy)
+        if (filterBy.status === 'inbox') mails = mails.filter(mail => mail.to === loggedInUser.email)
+        else if (filterBy.status === 'sent') mails = mails.filter(mail => mail.from === loggedInUser.email)
+
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
             mails = mails.filter(mail => {
@@ -33,6 +36,20 @@ function query(filterBy) {
                 ) return true
             })
         }
+
+        if (filterBy.to) {
+            const regex = new RegExp(filterBy.to, 'i')
+            mails = mails.filter(mail => regex.test(mail.to))
+        }
+        if (filterBy.from) {
+            const regex = new RegExp(filterBy.from, 'i')
+            mails = mails.filter(mail => regex.test(mail.from))
+        }
+        if (filterBy.subject) {
+            const regex = new RegExp(filterBy.subject, 'i')
+            mails = mails.filter(mail => regex.test(mail.subject))
+        }
+
         if (filterBy.isRead === 'showRead') {
             mails = mails.filter(mail => mail.isRead)
         } else if (filterBy.isRead === 'showUnread') {
@@ -77,7 +94,7 @@ function getEmptyMail() {
 
 function getUnreadMails() {
     return storageService.query(MAIL_KEY).then(mails => {
-        return mails.filter(mail => mail.isRead === false).length
+        return mails.filter(mail => mail.isRead === false && mail.from !== loggedInUser.email).length
     })
 }
 
@@ -90,7 +107,7 @@ function getNextMailId(mailId) {
 }
 
 function getDefaultFilter() {
-    return { status: 'inbox', txt: '', isRead: '', isStared: null, labels: [] }
+    return { status: 'inbox', txt: '', from: '', to: '', subject: '', isRead: '', isStared: null, labels: [] }
 }
 
 function _createMails() {
@@ -110,6 +127,10 @@ function _setNextPrevMailId(mail) {
         mail.prevMailId = prevMail.id
         return mail
     })
+}
+
+function getUserMail() {
+    return loggedInUser.email
 }
 
 

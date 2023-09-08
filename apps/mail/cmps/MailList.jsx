@@ -1,4 +1,5 @@
 import { MailPreview } from './MailPreview.jsx'
+import { MailSort } from './MailSort.jsx'
 
 const { useNavigate } = ReactRouterDOM
 const { Outlet, useOutletContext } = ReactRouterDOM
@@ -24,6 +25,7 @@ export function MailList() {
     return (
         <section className="mail-list">
             <Outlet context={onComposeMail} />
+            <MailSort />
             <table className="mail-table">
                 <tbody>
                     {mails.map(mail => (

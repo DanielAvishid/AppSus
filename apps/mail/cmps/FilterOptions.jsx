@@ -1,11 +1,36 @@
 export function FilterOptions({ onSubmitFilter, handleChange }) {
     return (
-        <section className='filter-options flex'>
+        <section className='filter-options flex col'>
+            <div>
+                <div className='flex col'>
+                    <div className='filter-options-container flex'>
+                        <label htmlFor="from">From</label>
+                        <input
+                            name='from'
+                            type="text"
+                            id='from'
+                            onChange={handleChange} />
+                    </div>
+                    <div className='filter-options-container flex'>
+                        <label htmlFor="to">To</label>
+                        <input
+                            name='to'
+                            type="text"
+                            id='to'
+                            onChange={handleChange} />
+                    </div>
+                    <div className='filter-options-container flex'>
+                        <label htmlFor="subject">Subject</label>
+                        <input
+                            name='subject'
+                            type="text"
+                            id='subject'
+                            onChange={handleChange} />
+                    </div>
+                </div>
 
-
-            <fieldset>
-                <legend>Read / Unread</legend>
-
+            </div>
+            <div className='flex radio-container'>
                 <div>
                     <input
                         type="radio"
@@ -35,10 +60,11 @@ export function FilterOptions({ onSubmitFilter, handleChange }) {
                         onChange={handleChange} />
                     <label htmlFor="unread">Unread</label>
                 </div>
-            </fieldset>
-            <div>
-                <button onClick={onSubmitFilter}>Search</button>
             </div>
-        </section>
+
+            <div>
+                <button title="Search mail" onClick={onSubmitFilter}>Search</button>
+            </div>
+        </section >
     )
 }
