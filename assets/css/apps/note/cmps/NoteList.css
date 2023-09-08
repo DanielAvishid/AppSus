@@ -2,10 +2,10 @@
 
 /* TODO - fix the spaces */
 
-.notes-container {
+/* .notes-container {
   columns: 6 240px;
-  /* column-gap: 12px; */
-}
+  column-gap: 12px;
+} */
 
 .notes-container > h4 {
   width: 100%;

@@ -1,3 +1,3 @@
-export function NotePallete({ onTogglePallete, noteBgc }) {
-  return <div>wowwww</div>
-}
+// export function NotePallete({ onTogglePallete, noteBgc }) {
+//   return <div>wowwww</div>
+// }

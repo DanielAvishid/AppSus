@@ -19,8 +19,47 @@
   border: 1px solid black;
   width: 100%;
   max-width: 600px;
-  height: fit-content;
+  max-height: 90vh;
+  /* height: fit-content; */
   z-index: 1000;
+}
+
+/* add something */
+/* .note-details {
+  position: relative;
+  max-width: 600px;
+  left: 50%;
+  transform: translate(-50%); 
+  margin: 10px 0;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 5px #9b9b9b;
+  border-radius: 8px;
+} */
+
+.note-details > * {
+  width: 100%;
+  padding: 5px 5px;
+}
+
+.note-details-form > * {
+  width: 95%;
+  padding: 5px 0;
+  border: none;
+  margin: 5px 10px 5px;
+}
+
+.note-details-form input:focus {
+  outline: none;
+}
+
+.close-details-btn > button {
+  border: none;
+  background-color: transparent;
+  padding: 8px 24px;
+}
+
+.close-details-btn > button:hover {
+  background-color: #f1f0f0;
 }
 
 /* .exit {

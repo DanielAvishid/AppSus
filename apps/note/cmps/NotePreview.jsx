@@ -51,6 +51,10 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
     }
   }
 
+  function check() {
+    console.log('click')
+  }
+
   return (
     <article key={key} className="note-preview-container">
       <div className={`note-preview flex column justify-center ${noteBgc}`}>
@@ -87,33 +91,41 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
             <span className="material-symbols-outlined">more_vert</span>
           </button>
         </section>
-      </div>
-
-      {isPalleteOpen && (
-        <div className="color-pallete flex">
-          <button className="transparent" onClick={() => onChangeNoteBgc('transparent', note)}>
-            ✖
-          </button>
-          <button className="lightblue" onClick={() => onChangeNoteBgc('lightblue', note)}></button>
-          <button
-            className="lightgreen"
-            onClick={() => onChangeNoteBgc('lightgreen', note)}
-          ></button>
-          <button className="lightpink" onClick={() => onChangeNoteBgc('lightpink', note)}></button>
-          <button
-            className="lightcoral"
-            onClick={() => onChangeNoteBgc('lightcoral', note)}
-          ></button>
-          <button
-            className="lightsalmon"
-            onClick={() => onChangeNoteBgc('lightsalmon', note)}
-          ></button>
-          <button
-            className="lightseagreen"
-            onClick={() => onChangeNoteBgc('lightseagreen', note)}
-          ></button>
+        <div className="check-btn">
+          <button onClick={() => check()}>✌</button>
         </div>
-      )}
+        {isPalleteOpen && (
+          <div className="color-pallete flex">
+            <button className="transparent" onClick={() => onChangeNoteBgc('transparent', note)}>
+              ✖
+            </button>
+            <button
+              className="lightblue"
+              onClick={() => onChangeNoteBgc('lightblue', note)}
+            ></button>
+            <button
+              className="lightgreen"
+              onClick={() => onChangeNoteBgc('lightgreen', note)}
+            ></button>
+            <button
+              className="lightpink"
+              onClick={() => onChangeNoteBgc('lightpink', note)}
+            ></button>
+            <button
+              className="lightcoral"
+              onClick={() => onChangeNoteBgc('lightcoral', note)}
+            ></button>
+            <button
+              className="lightsalmon"
+              onClick={() => onChangeNoteBgc('lightsalmon', note)}
+            ></button>
+            <button
+              className="lightseagreen"
+              onClick={() => onChangeNoteBgc('lightseagreen', note)}
+            ></button>
+          </div>
+        )}
+      </div>
     </article>
   )
 }
