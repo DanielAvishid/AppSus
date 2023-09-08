@@ -1,0 +1,11 @@
+.filter-options {
+    background-color: #fff;
+    position: absolute;
+    z-index: 10;
+    width: 700px
+}
+
+.filter-options fieldset {
+    margin-block-start: 40px;
+    max-width: 200px;
+}

@@ -16,16 +16,17 @@ export function MailDetails() {
             .then(setMail)
             .catch(err => {
                 console.log('err:', err)
-                navigate('/mail/list')
+                navigate('/mail/inbox')
             })
     }, [mailId])
 
     function onBack() {
-        navigate('/mail/list')
+        navigate('/mail/inbox')
     }
 
     function removeMail() {
-        onRemoveMail(mailId)
+        console.log('HIO')
+        onRemoveMail(null, mailId)
         onBack()
     }
 

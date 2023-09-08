@@ -22,6 +22,8 @@
 @import './apps/mail/cmps/AppHeaderMail.css';
 @import './apps/mail/cmps/SidebarMail.css';
 @import './apps/mail/cmps/MailPreview.css';
+@import './apps/mail/cmps/MailFilter.css';
+@import './apps/mail/cmps/FilterOptions.css';
 
 /* Cmps */
 

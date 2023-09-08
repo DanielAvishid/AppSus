@@ -2,7 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
+    height: 8vh;
     background-color: #f6f8fc;
     border-bottom: none;
+}
+
+.logo-container {
+    min-width: 17.4rem;
+}
+
+.logo {
+    max-width: 40px;
+}
+
+.menu {
+    margin-inline: 10px;
 }

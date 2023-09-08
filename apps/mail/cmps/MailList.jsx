@@ -4,7 +4,7 @@ const { useNavigate } = ReactRouterDOM
 const { Outlet, useOutletContext } = ReactRouterDOM
 
 export function MailList() {
-    const [mails, onComposeMail, onRemoveMail] = useOutletContext()
+    const [mails, onComposeMail, onRemoveMail, setUnreadOrRead] = useOutletContext()
     const navigate = useNavigate()
 
     function onMailClick(mailId) {
@@ -24,13 +24,6 @@ export function MailList() {
     return (
         <section className="mail-list">
             <Outlet context={onComposeMail} />
-            <section>
-                <select name="" id="">
-                    <option value="all">All</option>
-                    <option value="read">Read</option>
-                    <option value="un-read">Unread</option>
-                </select>
-            </section>
             <table className="mail-table">
                 <tbody>
                     {mails.map(mail => (
@@ -39,7 +32,9 @@ export function MailList() {
                             readOrUnread={readOrUnread}
                             onMailClick={onMailClick}
                             hoverOrNot={hoverOrNot}
-                            onRemoveMail={onRemoveMail} />
+                            onRemoveMail={onRemoveMail}
+                            setUnreadOrRead={setUnreadOrRead}
+                        />
                     ))}
                 </tbody>
             </table>
