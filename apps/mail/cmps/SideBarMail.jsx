@@ -27,18 +27,18 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
     }, [filterBy])
 
     function setActiveClass(isActive) {
-        if (isActive) return 'active'
+        if (isActive) return 'is-active'
         else return ''
     }
 
     function sidebarIsOpen(isSidebarOpen) {
         if (isSidebarOpen) return 'open'
-        else return ''
+        else return 'close'
     }
 
     function sidebarIsHover(isSidebarHover) {
         if (isSidebarHover) return 'hover'
-        else return ''
+        else return 'not-hover'
     }
 
     function setActiveStatesFalse() {
@@ -66,7 +66,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
                         setIsInbox(true)
                         setFilterByToEdit(prevFilter => ({ ...prevFilter, status: 'inbox' }))
                     }}>
-                    <div className="flex align-center">
+                    <div className="container flex align-center">
                         <span className="material-symbols-outlined">inbox</span>
                         {(isSidebarHover || isSidebarOpen) && <span>Inbox</span>}
                     </div>
@@ -79,7 +79,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
                         setIsStarred(true)
                         setFilterByToEdit(prevFilter => ({ ...prevFilter, status: 'starred' }))
                     }}>
-                    <div className="flex align-center">
+                    <div className="container flex align-center">
                         <span className="material-symbols-outlined">star</span>
                         {(isSidebarHover || isSidebarOpen) && <span>Starred</span>}
                     </div>
@@ -91,7 +91,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
                         setIsSent(true)
                         setFilterByToEdit(prevFilter => ({ ...prevFilter, status: 'sent' }))
                     }}>
-                    <div className="flex align-center">
+                    <div className="container flex align-center">
                         <span className="material-symbols-outlined">send</span>
                         {(isSidebarHover || isSidebarOpen) && <span>Sent</span>}
                     </div>

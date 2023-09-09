@@ -1,6 +1,8 @@
- /* mail index  */
+.mail-index {
+    font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+    background-color: #f6f8fc;
+}
 
- .mail-index {
-     font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-     background-color: #f6f8fc;
- }
+.sidebar-container {
+    align-items: center;
+}

@@ -130,7 +130,7 @@ export function MailIndex() {
 
     function sidebarIsOpen(isSidebarOpen) {
         if (isSidebarOpen) return 'open'
-        else return ''
+        else return 'close'
     }
 
     function sidebarIsHover(isSidebarHover) {
