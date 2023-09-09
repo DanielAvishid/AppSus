@@ -14,7 +14,7 @@
 
 .search-input {
     background-color: #eaf1fb;
-    flex: 1;
+    flex-grow: 1;
     border: none;
     padding-block: 10px;
     font-size: 16px;

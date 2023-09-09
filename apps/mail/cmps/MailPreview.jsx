@@ -41,12 +41,6 @@ export function MailPreview({ mail, readOrUnread, onMailClick, hoverOrNot, onRem
                 {mail.body}
             </span>
         </td>
-        {/* <td className='preview-body'>
-            {mail.body}
-        </td> */}
-        {/* <span className="preview-body">
-            {mail.body}
-        </span> */}
         {!isHover && <td className="preview-sent-at">
             {mail.sentAt}
         </td>

@@ -9,7 +9,7 @@ export function AppHeaderMail({ filterBy, onSetFilterBy, setIsSidebarOpen, isSid
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     return <header className="app-header-mail">
-        <div className="flex align-center">
+        <div className="container flex align-center">
             <div className='logo-container flex align-center'>
                 <span
                     className="material-symbols-outlined menu"
@@ -24,7 +24,7 @@ export function AppHeaderMail({ filterBy, onSetFilterBy, setIsSidebarOpen, isSid
             <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
         </div>
         <nav className="flex">
-            <div className='flex align-center'>
+            <div className='nav-container flex align-center'>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
             </div>

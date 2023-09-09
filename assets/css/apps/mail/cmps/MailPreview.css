@@ -47,6 +47,7 @@
 .remove-mail {
     text-align: end;
     width: 200px;
+    padding-inline-end: 10px;
 }
 
 .between-span {

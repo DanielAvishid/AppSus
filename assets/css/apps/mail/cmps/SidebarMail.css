@@ -3,6 +3,7 @@
     font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
     background-color: #f6f8fc;
     height: 92vh;
+    width: 5rem;
 }
 
 .SidebarMail.open,
@@ -21,7 +22,7 @@
 
 .SidebarMail.close .inbox-btn .material-symbols-outlined,
 .SidebarMail.not-hover .inbox-btn .material-symbols-outlined {
-    margin-inline-start: 22px;
+    margin-inline-start: 21px;
     background-color: #e3e6e9;
     color: #444746;
     border: none;
@@ -47,7 +48,7 @@
     border-radius: 50%;
     padding: 4px;
     position: absolute;
-    left: -10px;
+    left: -11px;
 }
 
 .SidebarMail.close .sent-btn.is-active .material-symbols-outlined,

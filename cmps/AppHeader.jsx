@@ -16,7 +16,7 @@ export function AppHeader() {
             </div>
         </div>
         <nav className="flex">
-            <div className='flex align-center'>
+            <div className='nav-container flex align-center'>
                 <NavLink to="/">Home</NavLink>
                 <NavLink to="/about">About</NavLink>
             </div>
@@ -26,7 +26,7 @@ export function AppHeader() {
                 <span className="material-symbols-outlined">apps</span>
             </button>
             <button className="flex align-center justify-center relative">
-                <img src="/assets/img/dog-1.jpg" alt="" />
+                <img src={"/assets/img/dog-1.jpg"} alt="" />
             </button>
             {isMenuOpen && <MenuModal />}
         </nav>

@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 8vh;
+    min-height: 70px;
+    max-height: 8vh;
     background-color: #f6f8fc;
     border-bottom: none;
 }
