@@ -109,7 +109,7 @@
   box-shadow: 0 1px 5px #b9b9b9;
 }
 .note-preview-btns > *:hover {
-  background-color: #e0e0e07a;
+  background-color: rgba(95, 99, 104, 0.157);
 }
 .note-preview:hover > .note-preview-btns,
 .note-preview:hover > .check-btn {

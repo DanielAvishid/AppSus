@@ -1,6 +1,8 @@
 import { NoteList } from '../cmps/NoteList.jsx'
 import { NoteAdd } from '../cmps/NoteAdd.jsx'
 import { noteService } from '../services/note.service.js'
+import { SidebarNotes } from '../cmps/SideBarNotes.jsx'
+import { AppHeaderNotes } from '../cmps/AppHeaderNotes.jsx'
 
 const { useState, useEffect } = React
 const { Outlet } = ReactRouterDOM
@@ -60,9 +62,29 @@ export function NoteIndex() {
 
   return (
     <section className="relative">
-      <NoteAdd onAddNote={onAddNote} getEmptyNote={noteService.getEmptyNote} />
-      <NoteList notes={notes} updateNote={updateNote} onRemoveNote={onRemoveNote} />
-      <Outlet context={updateNote} />
+      <AppHeaderNotes />
+      <div className="flex">
+        <SidebarNotes />
+        <div>
+          <NoteAdd onAddNote={onAddNote} getEmptyNote={noteService.getEmptyNote} />
+          <NoteList notes={notes} updateNote={updateNote} onRemoveNote={onRemoveNote} />
+        </div>
+        <Outlet context={updateNote} />
+      </div>
     </section>
+
+    //     <section className="mail-index">
+    //     <AppHeaderMail
+    //         filterBy={filterBy}
+    //         onSetFilterBy={onSetFilterBy} />
+    //     <div className="flex">
+    //         <SidebarMail
+    //             unreadMails={unreadMails}
+    //             setFilterSent={setFilterSent}
+    //             onSetFilterBy={onSetFilterBy}
+    //             filterBy={filterBy} />
+    //         <Outlet context={[mails, onComposeMail, onRemoveMail, setUnreadOrRead, filterBy, onSetFilterBy]} />
+    //     </div>
+    // </section >
   )
 }

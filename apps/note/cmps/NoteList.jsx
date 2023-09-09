@@ -7,7 +7,7 @@ export function NoteList({ notes, updateNote, onRemoveNote }) {
   const regularNotes = notes.filter(note => note.isPinned === false)
 
   return (
-    <section>
+    <section className="notes-container">
       <h4>PINNED</h4>
       <div className="notes-container">
         {pinnedNotes.map(note => (

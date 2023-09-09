@@ -1,0 +1,80 @@
+.SidebarNotes {
+  font-family: 'Google Sans', Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
+  height: 92vh;
+  min-width: 17.4rem;
+  background-color: white;
+  padding-top: 10px;
+  position: sticky;
+  top: 8vh;
+  z-index: 100;
+}
+
+/* .SidebarMail .compose-title {
+    font-size: 1rem;
+} */
+
+/* .SidebarMail .compose-btn {
+    margin-inline: 10px;
+    max-width: 152px;
+    height: 60px;
+    border-radius: 16px;
+    text-align: center;
+    margin-block-end: 16px;
+    background-color: #c2e7ff;
+    transition: box-shadow .08s linear, min-width .15s cubic-bezier(0.4, 0, 0.2, 1)
+} */
+
+/* .SidebarMail .compose-btn:hover {
+    box-shadow: 0 1px 3px 0 rgba(60, 64, 67, 0.302), 0 4px 8px 3px rgba(60, 64, 67, 0.149);
+} */
+
+/* .compose-btn .compose-title {
+    margin-inline-start: 1rem;
+} */
+
+.SidebarNotes .notes-btn,
+.SidebarMail .starred-btn,
+.SidebarMail .sent-btn,
+.SidebarMail .draft-btn,
+.SidebarMail .trash-btn {
+  height: 2.2rem;
+  font-size: 1rem;
+  margin: 0;
+  margin-inline-end: 1.3rem;
+  padding-inline-start: 2rem;
+  border-end-end-radius: 1.3rem;
+  border-start-end-radius: 1.3rem;
+  cursor: pointer;
+}
+
+/* .SidebarMail .inbox-btn .unread-mails {
+    align-self: center;
+    padding-inline-end: 1rem;
+} */
+
+.SidebarNotes .notes-btn.active,
+.SidebarMail .starred-btn.active,
+.SidebarMail .sent-btn.active,
+.SidebarMail .draft-btn.active,
+.SidebarMail .trash-btn.active {
+  text-decoration: none;
+  background-color: rgb(254, 239, 195) !important;
+}
+
+.SidebarNotes .notes-btn:hover,
+.SidebarMail .starred-btn:hover,
+.SidebarMail .sent-btn:hover,
+.SidebarMail .draft-btn:hover,
+.SidebarMail .trash-btn:hover {
+  background-color: #eaebef;
+}
+
+.SidebarNotes .material-symbols-outlined {
+  margin-inline-end: 1.2rem;
+  font-size: 1.4rem;
+}
+
+/* .SidebarMail .compose-btn .material-symbols-outlined {
+    font-size: 1.7rem;
+    margin-inline-end: 0px;
+} */

@@ -32,6 +32,8 @@
   padding: 8px 24px;
 }
 
+/* HOVER */
+
 .close-btn:hover {
   background-color: #f1f0f0;
 }
