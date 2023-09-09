@@ -31,12 +31,12 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
         else return ''
     }
 
-    function sidebarOpenOrClose(isSidebarOpen) {
-        if (!isSidebarOpen) return 'close'
+    function sidebarIsOpen(isSidebarOpen) {
+        if (isSidebarOpen) return 'open'
         else return ''
     }
 
-    function sidebarHoverOrNot(isSidebarHover) {
+    function sidebarIsHover(isSidebarHover) {
         if (isSidebarHover) return 'hover'
         else return ''
     }
@@ -50,7 +50,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
     }
 
     return (
-        <section className={`SidebarMail ${sidebarOpenOrClose(isSidebarOpen)} ${sidebarHoverOrNot(isSidebarHover)}`}>
+        <section className={`SidebarMail ${sidebarIsHover(isSidebarHover)} ${sidebarIsOpen(isSidebarOpen)}`}>
             <Link className='compose-btn flex align-center justify-center' to={'/mail/list/new'}>
                 <span className="material-symbols-outlined">
                     edit

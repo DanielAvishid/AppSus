@@ -1,8 +1,13 @@
 import { MailFilter } from '../cmps/MailFilter.jsx'
+import { MenuModal } from '../../../cmps/MenuModal.jsx'
 
 const { Link, NavLink } = ReactRouterDOM
+const { useState } = React
 
 export function AppHeaderMail({ filterBy, onSetFilterBy, setIsSidebarOpen, isSidebarOpen }) {
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+
     return <header className="app-header-mail">
         <div className="flex align-center">
             <div className='logo-container flex align-center'>
@@ -14,15 +19,24 @@ export function AppHeaderMail({ filterBy, onSetFilterBy, setIsSidebarOpen, isSid
                 <Link to="/">
                     <img className='logo' src="/assets/img/gmail-logo.png" alt="" />
                 </Link>
-                <span className='logo-title'>Mails</span>
+                <span className="brand-name">Mails</span>
             </div>
             <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
         </div>
-        <nav>
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/mail/list">Mail</NavLink>
-            <NavLink to="/note">Note</NavLink>
+        <nav className="flex">
+            <div className='flex align-center'>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/about">About</NavLink>
+            </div>
+            <button
+                className="flex align-center justify-center"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <span className="material-symbols-outlined">apps</span>
+            </button>
+            <button className="flex align-center justify-center relative">
+                <img src="/assets/img/dog-1.jpg" alt="" />
+            </button>
+            {isMenuOpen && <MenuModal />}
         </nav>
     </header>
 }

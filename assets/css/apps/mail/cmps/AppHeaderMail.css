@@ -7,9 +7,10 @@
     border-bottom: none;
 }
 
-.logo-title {
-    margin-inline-start: 10px;
+.brand-name {
+    font-family: 'Product Sans', Arial, sans-serif;
     font-size: 1.5rem;
+    color: rgb(95, 99, 104);
 }
 
 .logo-container {
@@ -21,5 +22,21 @@
 }
 
 .menu {
+    cursor: pointer;
     margin-inline: 10px;
+}
+
+.app-header-mail>nav>button {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0;
+    background-color: inherit;
+}
+
+.app-header-mail>nav>button>img {
+    border-radius: 50%;
+    position: absolute;
+    padding: 5px;
 }
