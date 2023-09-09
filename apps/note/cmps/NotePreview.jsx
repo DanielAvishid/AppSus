@@ -91,9 +91,7 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
             <span className="material-symbols-outlined">more_vert</span>
           </button>
         </section>
-        <div className="check-btn">
-          <button onClick={() => check()}>✌</button>
-        </div>
+        <img src="/assets/img/checked-icon.png" className="check-btn" />
         {isPalleteOpen && (
           <div className="color-pallete flex">
             <button className="transparent" onClick={() => onChangeNoteBgc('transparent', note)}>

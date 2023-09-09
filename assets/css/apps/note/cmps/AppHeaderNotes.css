@@ -12,10 +12,17 @@
 
 .logo-container {
   max-width: 232px;
+  gap: 12px;
 }
 
 .logo {
   max-height: 44px;
+}
+
+.brand-name {
+  font-family: 'Product Sans', Arial, sans-serif;
+  font-size: 1.5rem;
+  color: rgb(95, 99, 104);
 }
 
 .menu {

@@ -8,29 +8,25 @@ export function NoteList({ notes, updateNote, onRemoveNote }) {
 
   return (
     <section className="notes-container">
-      <h4>PINNED</h4>
-      <div className="notes-container">
-        {pinnedNotes.map(note => (
-          <NotePreview
-            key={note.id}
-            note={note}
-            updateNote={updateNote}
-            onRemoveNote={onRemoveNote}
-          />
-        ))}
-      </div>
+      <p>PINNED</p>
+      {pinnedNotes.map(note => (
+        <NotePreview
+          key={note.id}
+          note={note}
+          updateNote={updateNote}
+          onRemoveNote={onRemoveNote}
+        />
+      ))}
 
-      <h4>OTHERS</h4>
-      <div className="notes-container">
-        {regularNotes.map(note => (
-          <NotePreview
-            key={note.id}
-            note={note}
-            updateNote={updateNote}
-            onRemoveNote={onRemoveNote}
-          />
-        ))}
-      </div>
+      <p>OTHERS</p>
+      {regularNotes.map(note => (
+        <NotePreview
+          key={note.id}
+          note={note}
+          updateNote={updateNote}
+          onRemoveNote={onRemoveNote}
+        />
+      ))}
     </section>
   )
 }

@@ -10,7 +10,7 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
         <Link to="/">
           <img className="logo" src="/assets/img/Google_Keep_logo.png" alt="" />
         </Link>
-        <span>Keep</span>
+        <span className="brand-name">Keep</span>
       </div>
       <div className="search-filter-container">
         <div className="search-filter-content flex space-between align-center">
@@ -18,7 +18,7 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
             <span className="material-symbols-outlined">search</span>
           </button>
           {/* <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} /> */}
-          <input type="text" />
+          <input type="text" placeholder="Search" />
           <button>
             <span className="material-symbols-outlined">close</span>
           </button>

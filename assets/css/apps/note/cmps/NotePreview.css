@@ -4,17 +4,18 @@
   /* width: 240px; */
 }
 
+.note-preview-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .note-preview {
   border: 1px solid #e0e0e0;
   overflow: hidden;
   margin: 10px;
   border-radius: 8px;
   transition: 0.2s;
-  width: 100%;
-}
-
-/* cover eith div */
-.note-preview > img {
   width: 100%;
 }
 
@@ -42,21 +43,28 @@
 .note-preview-btns > button,
 .color-pallete > button,
 .check-btn > button {
+  background-color: inherit;
   cursor: pointer;
   border: none;
   border-radius: 50%;
+}
+
+.check-btn {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.note-preview-btns > button,
+.color-pallete > button {
   width: 34px;
   height: 34px;
 }
 
-.note-preview-btns > button {
-  background-color: transparent;
-}
-
 .check-btn {
   position: absolute;
-  top: -10px;
-  left: -5px;
+  top: 4px;
+  left: 5px;
 }
 
 /* TODO - make it in the center of the article (.note-preview-container) */

@@ -7,9 +7,13 @@
   column-gap: 12px;
 } */
 
-.notes-container > h4 {
+.notes-container > p {
   width: 100%;
-  padding-top: 50px;
+  padding: 32px 32px 8px;
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgb(95, 99, 104);
 }
 
 /* .pinned-container,
