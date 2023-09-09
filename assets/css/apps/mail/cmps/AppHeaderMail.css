@@ -7,6 +7,11 @@
     border-bottom: none;
 }
 
+.logo-title {
+    margin-inline-start: 10px;
+    font-size: 1.5rem;
+}
+
 .logo-container {
     min-width: 17.4rem;
 }

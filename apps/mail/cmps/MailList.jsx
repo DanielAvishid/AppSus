@@ -5,7 +5,7 @@ const { useNavigate } = ReactRouterDOM
 const { Outlet, useOutletContext } = ReactRouterDOM
 
 export function MailList() {
-    const [mails, onComposeMail, onRemoveMail, setUnreadOrRead] = useOutletContext()
+    const [mails, onComposeMail, onRemoveMail, setUnreadOrRead, , , sortBy, onSetSortBy, setIsStar] = useOutletContext()
     const navigate = useNavigate()
 
     function onMailClick(mailId) {
@@ -22,10 +22,15 @@ export function MailList() {
         if (!isHover) return 'non-hovered'
     }
 
+    function StarOrNot(isStarred) {
+        if (isStarred) return 'starred'
+        if (!isStarred) return 'non-starred'
+    }
+
     return (
         <section className="mail-list">
             <Outlet context={onComposeMail} />
-            <MailSort />
+            <MailSort onSetSortBy={onSetSortBy} sortBy={sortBy} />
             <table className="mail-table">
                 <tbody>
                     {mails.map(mail => (
@@ -36,7 +41,8 @@ export function MailList() {
                             hoverOrNot={hoverOrNot}
                             onRemoveMail={onRemoveMail}
                             setUnreadOrRead={setUnreadOrRead}
-                        />
+                            setIsStar={setIsStar}
+                            StarOrNot={StarOrNot} />
                     ))}
                 </tbody>
             </table>
