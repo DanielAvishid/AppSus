@@ -1,12 +1,36 @@
+import { NotePallete } from '../cmps/NotePallete.jsx'
+
 const { useState, useEffect } = React
 
 export function NoteAdd({ onAddNote, getEmptyNote }) {
-  const [noteInfo, setNoteInfo] = useState(getEmptyNote())
+  const [note, setNote] = useState(getEmptyNote())
+  console.log(note)
+  const [isPalleteOpen, setIsPalleteOpen] = useState(false)
+  const [pinned, setPinned] = useState('')
+  const [noteBgc, setNoteBgc] = useState('')
 
   function handleSubmit(ev) {
     console.log(ev)
     ev.preventDefault()
-    onAddNote(noteInfo)
+    onAddNote(note)
+    setNote(getEmptyNote())
+    setPinned('')
+    setNoteBgc('')
+    setIsPalleteOpen(false)
+  }
+
+  function onTogglePin() {
+    note.isPinned = !note.isPinned
+    if (note.isPinned) {
+      setPinned('pinned')
+    } else {
+      setPinned('')
+    }
+    setNote(note)
+  }
+
+  function onTogglePallete() {
+    setIsPalleteOpen(!isPalleteOpen)
   }
 
   function handleChange({ target }) {
@@ -23,13 +47,20 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
       default:
         break
     }
-    setNoteInfo(prevInfo => ({ ...prevInfo, info: { ...prevInfo.info, [field]: value } }))
+    setNote(prevInfo => ({ ...prevInfo, info: { ...prevInfo.info, [field]: value } }))
   }
 
-  const { title, txt, url } = noteInfo.info
+  function onChangeNoteBgc(color, note) {
+    console.log(note.style.backgroundColor)
+    note.style.backgroundColor = color
+    console.log(note.style.backgroundColor)
+    setNoteBgc(color)
+  }
+
+  const { title, txt, url } = note.info
 
   return (
-    <section className="note-add-container flex column align-center">
+    <section className={`note-add-container flex column align-center ${noteBgc}`}>
       <form id="note-form" className="note-form flex column" onSubmit={handleSubmit}>
         <input
           value={title}
@@ -58,25 +89,29 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
       </form>
       {/* TODO: check why they are not seperate (btn-divs) */}
       <div className="flex space-between align-center">
-        <div className="note-preview-btns">
-          <button>
+        <div className="note-add-btns">
+          {/* <button onClick={() => onRemoveNote(note)}>
             <span className="material-symbols-outlined">file_copy</span>
-          </button>
-          <button>
+          </button> */}
+          <button className={`${pinned}`} onClick={() => onTogglePin()}>
             <span className="material-symbols-outlined">star</span>
           </button>
-          <button>
+          <button onClick={() => onTogglePallete()}>
             <span className="material-symbols-outlined">palette</span>
           </button>
-          <button>
-            <span className="material-symbols-outlined">new_label</span>
-          </button>
-          <button>
+          {/* <input
+            type="file"
+            accept="image/*"
+            style={{ display: 'none' }}
+            onChange={handleFileInputChange}
+            ref={fileInputRef}
+          />
+          <button onClick={() => fileInputRef.current.click()}>
             <span className="material-symbols-outlined">image</span>
           </button>
           <button>
             <span className="material-symbols-outlined">more_vert</span>
-          </button>
+          </button> */}
         </div>
         <div>
           {/* TODO: the submission should be execute just whenclick enter or clicking ouside of the form div  */}
@@ -85,6 +120,7 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
           </button>
         </div>
       </div>
+      {isPalleteOpen && <NotePallete note={note} onChangeNoteBgc={onChangeNoteBgc} />}
     </section>
   )
 }

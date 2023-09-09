@@ -26,7 +26,7 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
       </div>
       <nav className="flex">
         <button className="flex align-center justify-center">
-          <span class="material-symbols-outlined">apps</span>
+          <span className="material-symbols-outlined">apps</span>
         </button>
         <button className="flex align-center justify-center relative">
           <img src="/assets/img/dog-1.jpg" alt="" />

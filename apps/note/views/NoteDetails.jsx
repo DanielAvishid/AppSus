@@ -9,7 +9,7 @@ const { Link } = ReactRouterDOM
 export function NoteDetails() {
   const [note, setNote] = useState(null)
   const { noteId } = useParams()
-  const { updateNote } = useOutletContext()
+  const { onAddNote } = useOutletContext()
   const navigate = useNavigate()
 
   function onExitModal() {
