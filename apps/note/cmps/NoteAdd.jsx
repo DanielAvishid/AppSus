@@ -9,7 +9,7 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
   const [pinned, setPinned] = useState('')
   const [noteBgc, setNoteBgc] = useState('')
 
-  function handleSubmit(ev) {
+  const handleSubmit = ev => {
     console.log(ev)
     ev.preventDefault()
     onAddNote(note)
@@ -18,6 +18,16 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
     setNoteBgc('')
     setIsPalleteOpen(false)
   }
+
+  // function handleSubmit(ev) {
+  //   console.log(ev)
+  //   ev.preventDefault()
+  //   onAddNote(note)
+  //   setNote(getEmptyNote())
+  //   setPinned('')
+  //   setNoteBgc('')
+  //   setIsPalleteOpen(false)
+  // }
 
   function onTogglePin() {
     note.isPinned = !note.isPinned
