@@ -25,6 +25,11 @@ export function MailFilter({ filterBy, onSetFilterBy }) {
     function handleChange({ target }) {
         let field = target.name
         let value = target.value
+        if (field === 'to' && value) {
+            setFilterByToEdit(prevFilter => ({ ...prevFilter, to: '', from: '', status: 'sent', [field]: value }))
+        } else if (field === 'from') {
+            setFilterByToEdit(prevFilter => ({ ...prevFilter, to: '', from: '', status: 'inbox', [field]: value }))
+        }
         setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 

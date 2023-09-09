@@ -1,6 +1,5 @@
 header {
-
-    background: lightcyan;
+    background-color: #f6f8fc;
     border-bottom: 2px solid white;
 }
 
@@ -8,6 +7,14 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
+}
+
+.app-header .logo-container {
+    margin-inline-start: 15px;
+}
+
+.app-header nav {
+    margin-inline-end: 15px;
 }
 
 nav a {
@@ -21,5 +28,5 @@ nav a:active {
 nav a.active {
     color: darkblue;
     font-weight: bold;
-    text-decoration: overline;
+    text-decoration: underline;
 }

@@ -5,7 +5,7 @@ export const utilService = {
     getRandomColor,
     padNum,
     getDayName,
-    getMonthName,
+    getDate,
 }
 
 function makeId(length = 6) {
@@ -53,10 +53,11 @@ function getDayName(date, locale) {
     return date.toLocaleDateString(locale, { weekday: 'long' })
 }
 
-
-function getMonthName(date) {
+function getDate(date) {
     const monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
-    return monthNames[date.getMonth()]
+    const monthName = monthNames[date.getMonth()]
+    const monthDay = date.getDate()
+    return `${monthName} ${monthDay}`
 }

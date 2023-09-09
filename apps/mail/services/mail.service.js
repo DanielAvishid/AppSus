@@ -1,6 +1,7 @@
 import { localStorageService } from '../../../services/storage.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 import { MailsData } from './mailsData.js'
+import { utilService } from '../../../services/util.service.js'
 
 const MAIL_KEY = 'mailsDB'
 _createMails()
@@ -19,14 +20,13 @@ export const mailService = {
     getNextMailId,
     getUnreadMails,
     getDefaultFilter,
-    getUserMail
+    getUserMail,
+    getDefaultSort,
+    getDefaultUnreadMails
 }
 
 function query(filterBy) {
     return storageService.query(MAIL_KEY).then(mails => {
-        if (filterBy.status === 'inbox') mails = mails.filter(mail => mail.to === loggedInUser.email)
-        else if (filterBy.status === 'sent') mails = mails.filter(mail => mail.from === loggedInUser.email)
-
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
             mails = mails.filter(mail => {
@@ -41,6 +41,7 @@ function query(filterBy) {
             const regex = new RegExp(filterBy.to, 'i')
             mails = mails.filter(mail => regex.test(mail.to))
         }
+
         if (filterBy.from) {
             const regex = new RegExp(filterBy.from, 'i')
             mails = mails.filter(mail => regex.test(mail.from))
@@ -55,6 +56,9 @@ function query(filterBy) {
         } else if (filterBy.isRead === 'showUnread') {
             mails = mails.filter(mail => !mail.isRead)
         }
+        if (filterBy.status === 'inbox') mails = mails.filter(mail => mail.to === loggedInUser.email)
+        else if (filterBy.status === 'sent') mails = mails.filter(mail => mail.from === loggedInUser.email)
+        else if (filterBy.status === 'starred') mails = mails.filter(mail => mail.isStarred === true)
         return mails
     })
 }
@@ -75,7 +79,7 @@ function save(mail) {
     if (mail.id) {
         return storageService.put(MAIL_KEY, mail)
     } else {
-        mail.sentAt = Date.now()
+        mail.sentAt = utilService.getDate(new Date(Date.now()))
         return storageService.post(MAIL_KEY, mail)
     }
 }
@@ -107,7 +111,14 @@ function getNextMailId(mailId) {
 }
 
 function getDefaultFilter() {
-    return { status: 'inbox', txt: '', from: '', to: '', subject: '', isRead: '', isStared: null, labels: [] }
+    return { status: 'inbox', txt: '', from: '', to: '', subject: '', isRead: '', labels: [] }
+}
+
+function getDefaultSort() {
+    return { date: false, subject: true, descendD: false, descendS: false }
+}
+
+function getDefaultUnreadMails() {
 }
 
 function _createMails() {

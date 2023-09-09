@@ -1,7 +1,7 @@
 const { Link, NavLink } = ReactRouterDOM
 const { useState, useEffect } = React
 
-export function SidebarMail({ unreadMails, onSetFilterBy, filterBy }) {
+export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpen, isSidebarHover }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
     const [isInbox, setIsInbox] = useState(true)
     const [isStarred, setIsStarred] = useState(false)
@@ -13,8 +13,31 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy }) {
         onSetFilterBy(filterByToEdit)
     }, [filterByToEdit])
 
+    useEffect(() => {
+        if (filterBy.status === 'sent') {
+            setActiveStatesFalse()
+            setIsSent(true)
+        } else if (filterBy.status === 'inbox') {
+            setActiveStatesFalse()
+            setIsInbox(true)
+        } else if (filterBy.status === 'starred') {
+            setActiveStatesFalse()
+            setIsStarred(true)
+        }
+    }, [filterBy])
+
     function setActiveClass(isActive) {
         if (isActive) return 'active'
+        else return ''
+    }
+
+    function sidebarOpenOrClose(isSidebarOpen) {
+        if (!isSidebarOpen) return 'close'
+        else return ''
+    }
+
+    function sidebarHoverOrNot(isSidebarHover) {
+        if (isSidebarHover) return 'hover'
         else return ''
     }
 
@@ -27,12 +50,12 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy }) {
     }
 
     return (
-        <section className="SidebarMail">
+        <section className={`SidebarMail ${sidebarOpenOrClose(isSidebarOpen)} ${sidebarHoverOrNot(isSidebarHover)}`}>
             <Link className='compose-btn flex align-center justify-center' to={'/mail/list/new'}>
                 <span className="material-symbols-outlined">
                     edit
                 </span>
-                <span className='compose-title'>Compose</span>
+                {(isSidebarHover || isSidebarOpen) && <span className='compose-title'>Compose</span>}
             </Link>
 
             <section>
@@ -45,19 +68,20 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy }) {
                     }}>
                     <div className="flex align-center">
                         <span className="material-symbols-outlined">inbox</span>
-                        <span>Inbox</span>
+                        {(isSidebarHover || isSidebarOpen) && <span>Inbox</span>}
                     </div>
-                    <span className='unread-mails'>{unreadMails}</span>
+                    {(isSidebarHover || isSidebarOpen) && <span className='unread-mails'>{unreadMails}</span>}
                 </div>
                 <div
                     className={`flex space-between starred-btn ${setActiveClass(isStarred)}`}
                     onClick={() => {
                         setActiveStatesFalse()
                         setIsStarred(true)
+                        setFilterByToEdit(prevFilter => ({ ...prevFilter, status: 'starred' }))
                     }}>
                     <div className="flex align-center">
                         <span className="material-symbols-outlined">star</span>
-                        <span>Starred</span>
+                        {(isSidebarHover || isSidebarOpen) && <span>Starred</span>}
                     </div>
                 </div>
                 <div
@@ -69,10 +93,10 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy }) {
                     }}>
                     <div className="flex align-center">
                         <span className="material-symbols-outlined">send</span>
-                        <span>Sent</span>
+                        {(isSidebarHover || isSidebarOpen) && <span>Sent</span>}
                     </div>
                 </div>
-                <div
+                {/* <div
                     className={`flex space-between draft-btn ${setActiveClass(isDraft)}`}
                     onClick={() => {
                         setActiveStatesFalse()
@@ -83,8 +107,8 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy }) {
                         <span className="material-symbols-outlined">note</span>
                         <span>Drafts</span>
                     </div>
-                </div>
-                <div
+                </div> */}
+                {/* <div
                     className={`flex space-between trash-btn ${setActiveClass(isTrash)}`}
                     onClick={() => {
                         setActiveStatesFalse()
@@ -95,7 +119,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy }) {
                         <span className="material-symbols-outlined">delete</span>
                         <span>Trash</span>
                     </div>
-                </div>
+                </div> */}
 
 
             </section>
