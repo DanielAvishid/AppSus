@@ -1,7 +1,6 @@
 .note-preview-container {
-  width: 240px;
   margin-bottom: 1rem;
-  margin-block-end: 1rem;
+  position: relative;
 }
 
 .note-preview-container button {
@@ -34,6 +33,10 @@
   padding: 12px 16px;
 }
 
+.note-preview-btns {
+  padding-bottom: 5px;
+}
+
 .note-preview > .note-preview-btns,
 .check-btn {
   opacity: 0;
@@ -60,15 +63,16 @@
 
 .check-btn {
   position: absolute;
-  top: 4px;
-  left: 5px;
+  top: 5px;
+  right: 5px;
 }
 
 .note-preview-btns.img-btns {
   position: absolute;
   bottom: 0;
-  background-color: coral;
+  background-color: rgba(211, 210, 210, 0.664);
   transition: opacity 0.2s, top 0.2s;
+  width: 100%;
 }
 
 /* HOVER */

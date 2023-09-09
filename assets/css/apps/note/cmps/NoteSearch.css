@@ -1,0 +1,56 @@
+.note-filter-section {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.note-filter {
+  margin: 10px;
+  max-height: 200px;
+  width: 620px;
+  border: 2px solid #e0e0e0;
+  box-shadow: 1px 1px 1px rgba(167, 167, 167, 0.555);
+}
+
+.note-filter > p {
+  height: 40px;
+  margin: 0;
+  padding: 10px;
+}
+
+.note-filter-types,
+.note-color-types {
+  height: fit-content;
+}
+
+.note-filter-types div {
+  background-color: rgb(36, 85, 219);
+  width: 160px;
+  height: 160px;
+  margin-inline-end: 5px;
+}
+
+.note-filter-types div > span {
+  height: 100%;
+  font-size: 2rem;
+  color: white;
+  padding-top: 50px;
+}
+
+.note-filter-types div > p {
+  color: white;
+}
+
+.note-filter > .note-color-types div {
+  height: 60px;
+  width: 60px;
+  margin: 15px;
+  border-radius: 50%;
+  border: 2px solid #b3b2b2;
+  transition: 0.2s;
+}
+
+/* HOVER */
+
+.note-filter > .note-color-types div:hover {
+  border: 2px solid #3b3b3b;
+}

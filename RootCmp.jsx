@@ -7,6 +7,9 @@ import { Home } from './views/Home.jsx'
 import { MailIndex } from './apps/mail/views/MailIndex.jsx'
 import { MailCompose } from './apps/mail/cmps/MailCompose.jsx'
 import { NoteIndex } from './apps/note/views/NoteIndex.jsx'
+import { NoteList } from './apps/note/cmps/NoteList.jsx'
+import { NoteFilter } from './apps/note/cmps/NoteFilter.jsx'
+import { NoteSearch } from './apps/note/cmps/NoteSearch.jsx'
 import { NoteDetails } from './apps/note/views/NoteDetails.jsx'
 import { MailList } from './apps/mail/cmps/MailList.jsx'
 import { MailDetails } from './apps/mail/views/MailDetails.jsx'
@@ -30,6 +33,12 @@ export function App() {
           </Route>
           <Route path="/note" element={<NoteIndex />}>
             <Route path=":noteId" element={<NoteDetails />} />
+            <Route path="list" element={<NoteList />} />
+            <Route path="search" element={<NoteSearch />} />
+            <Route path="list" element={<NoteFilter />} />
+            {/* <Route path="image" element={<NoteFilter />} />
+              <Route path="text" element={<NoteFilter />} />
+            </Route> */}
           </Route>
         </Routes>
       </section>

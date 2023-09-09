@@ -1,6 +1,4 @@
-const { useState, useEffect } = React
-// const { useParams, useNavigate } = ReactRouterDOM
-// const { useOutletContext } = ReactRouterDOM
+const { useState } = React
 
 export function NoteEdit({ note }) {
   const [updatedNote, setUpdatedNote] = useState(note)
@@ -64,7 +62,6 @@ export function NoteEdit({ note }) {
         />
       </form>
 
-      {/* TODO: check why they are not seperate (btn-divs) */}
       <div className="flex space-between align-center">
         <div className="note-preview-btns">
           <button>
@@ -87,7 +84,6 @@ export function NoteEdit({ note }) {
           </button>
         </div>
         <div>
-          {/* TODO: the submission should be execute just whenclick enter or clicking ouside of the form div  */}
           <button className="close-btn" type="submit" form="note-form">
             Close
           </button>

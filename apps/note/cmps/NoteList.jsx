@@ -1,7 +1,14 @@
 import { NotePreview } from './NotePreview.jsx'
 import { NoteAdd } from '../cmps/NoteAdd.jsx'
 
-export function NoteList({ notes, onRemoveNote, onAddNote, getEmptyNote }) {
+const { useNavigate } = ReactRouterDOM
+const { Outlet, useOutletContext } = ReactRouterDOM
+
+export function NoteList() {
+  const [notes, onRemoveNote, getEmptyNote, onAddNote] = useOutletContext()
+  // const navigate = useNavigate()
+  console.log(notes)
+
   const pinnedNotes = notes.filter(note => note.isPinned === true)
   const regularNotes = notes.filter(note => note.isPinned === false)
 
@@ -35,10 +42,3 @@ export function NoteList({ notes, onRemoveNote, onAddNote, getEmptyNote }) {
     </section>
   )
 }
-
-// <button>
-//   <Link to={`/note/${note.id}`}>Details</Link>
-// </button>
-// <button>
-//   <Link to={`/note/edit/${note.id}`}>Edit</Link>
-// </button>

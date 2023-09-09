@@ -1,14 +1,7 @@
-/* .note-list-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
-  gap: 1rem;
-} */
-
 .pinned-container,
 .other-container {
-  /* width: 100%; */
   columns: 6 240px;
-  column-gap: 1rem;
+  /* column-gap: 1rem; */
 }
 
 .notes-container p {

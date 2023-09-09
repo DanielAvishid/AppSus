@@ -18,7 +18,6 @@ export function NoteIndex() {
     })
   }, [])
 
-  // TODO : see why thats isnt working well in NoteAdd (the note added to the DB!)
   function onAddNote(noteToAdd) {
     console.log('note to add', noteToAdd)
     noteService
@@ -61,30 +60,14 @@ export function NoteIndex() {
       <AppHeaderNotes />
       <div className="flex">
         <SidebarNotes />
-        <div>
-          <NoteList
-            notes={notes}
-            onRemoveNote={onRemoveNote}
-            getEmptyNote={getEmptyNote}
-            onAddNote={onAddNote}
-          />
-        </div>
-        <Outlet context={onAddNote} />
+        {/* <NoteList
+          notes={notes}
+          onRemoveNote={onRemoveNote}
+          getEmptyNote={getEmptyNote}
+          onAddNote={onAddNote}
+        /> */}
+        <Outlet context={[notes, onRemoveNote, getEmptyNote, onAddNote]} />
       </div>
     </section>
-
-    //     <section className="mail-index">
-    //     <AppHeaderMail
-    //         filterBy={filterBy}
-    //         onSetFilterBy={onSetFilterBy} />
-    //     <div className="flex">
-    //         <SidebarMail
-    //             unreadMails={unreadMails}
-    //             setFilterSent={setFilterSent}
-    //             onSetFilterBy={onSetFilterBy}
-    //             filterBy={filterBy} />
-    //         <Outlet context={[mails, onComposeMail, onRemoveMail, setUnreadOrRead, filterBy, onSetFilterBy]} />
-    //     </div>
-    // </section >
   )
 }
