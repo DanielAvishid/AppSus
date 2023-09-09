@@ -1,21 +1,22 @@
 .note-preview-container {
-  columns: 6 240px;
-  position: relative;
-  /* width: 240px; */
+  width: 240px;
+  margin-bottom: 1rem;
+  margin-block-end: 1rem;
+}
+
+.note-preview-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .note-preview {
   border: 1px solid #e0e0e0;
   overflow: hidden;
-  margin: 10px;
   border-radius: 8px;
   transition: 0.2s;
   width: 100%;
-}
-
-/* cover eith div */
-.note-preview > img {
-  width: 100%;
+  position: relative;
 }
 
 .note-preview-info > .note-title,
@@ -39,9 +40,7 @@
   transition: opacity 0.2s;
 }
 
-.note-preview-btns > button,
-.color-pallete > button,
-.check-btn > button {
+.note-preview-btns > button {
   cursor: pointer;
   border: none;
   border-radius: 50%;
@@ -54,53 +53,22 @@
 }
 
 .check-btn {
-  position: absolute;
-  top: -10px;
-  left: -5px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 }
 
-/* TODO - make it in the center of the article (.note-preview-container) */
-.color-pallete {
+.check-btn {
   position: absolute;
-  bottom: -40px;
-  left: 10;
-  z-index: 10;
-  width: fit-content;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 1px 5px #b9b9b9;
-  padding: 8px 9px;
-  background-color: white;
-  gap: 5px;
-  border-radius: 8px;
+  top: 4px;
+  left: 5px;
 }
 
-.color-pallete .transparent {
-  background-color: transparent;
-  border: 2px solid #e0e0e0;
-}
-.lightblue {
-  background-color: lightblue;
-  border: 2px solid lightblue;
-}
-.lightgreen {
-  background-color: lightgreen;
-  border: 2px solid lightgreen;
-}
-.lightpink {
-  background-color: lightpink;
-  border: 2px solid lightpink;
-}
-.lightcoral {
-  background-color: lightcoral;
-  border: 2px solid lightcoral;
-}
-.lightsalmon {
-  background-color: lightsalmon;
-  border: 2px solid lightsalmon;
-}
-.lightseagreen {
-  background-color: lightseagreen;
-  border: 2px solid lightseagreen;
+.note-preview-btns.img-btns {
+  position: absolute;
+  bottom: 0;
+  background-color: coral;
+  transition: opacity 0.2s, top 0.2s;
 }
 
 /* HOVER */
@@ -109,13 +77,10 @@
   box-shadow: 0 1px 5px #b9b9b9;
 }
 .note-preview-btns > *:hover {
-  background-color: #e0e0e07a;
+  background-color: rgba(95, 99, 104, 0.157);
 }
+
 .note-preview:hover > .note-preview-btns,
 .note-preview:hover > .check-btn {
   opacity: 1;
-}
-
-.color-pallete > button:hover {
-  border: 2px solid black;
 }

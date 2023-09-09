@@ -1,36 +1,37 @@
 import { NotePreview } from './NotePreview.jsx'
+import { NoteAdd } from '../cmps/NoteAdd.jsx'
 
-const { Outlet, useOutletContext } = ReactRouterDOM
-
-export function NoteList({ notes, updateNote, onRemoveNote }) {
+export function NoteList({ notes, onRemoveNote, onAddNote, getEmptyNote }) {
   const pinnedNotes = notes.filter(note => note.isPinned === true)
   const regularNotes = notes.filter(note => note.isPinned === false)
 
   return (
-    <section>
-      <h4>PINNED</h4>
-      <div className="notes-container">
-        {pinnedNotes.map(note => (
-          <NotePreview
-            key={note.id}
-            note={note}
-            updateNote={updateNote}
-            onRemoveNote={onRemoveNote}
-          />
-        ))}
-      </div>
-
-      <h4>OTHERS</h4>
-      <div className="notes-container">
-        {regularNotes.map(note => (
-          <NotePreview
-            key={note.id}
-            note={note}
-            updateNote={updateNote}
-            onRemoveNote={onRemoveNote}
-          />
-        ))}
-      </div>
+    <section className="note-list-container">
+      <NoteAdd onAddNote={onAddNote} getEmptyNote={getEmptyNote} />
+      <section className="notes-container">
+        <p>PINNED</p>
+        <section className="pinned-container">
+          {pinnedNotes.map(note => (
+            <NotePreview
+              key={note.id}
+              note={note}
+              onAddNote={onAddNote}
+              onRemoveNote={onRemoveNote}
+            />
+          ))}
+        </section>
+        <p>OTHERS</p>
+        <section className="other-container">
+          {regularNotes.map(note => (
+            <NotePreview
+              key={note.id}
+              note={note}
+              onAddNote={onAddNote}
+              onRemoveNote={onRemoveNote}
+            />
+          ))}
+        </section>
+      </section>
     </section>
   )
 }

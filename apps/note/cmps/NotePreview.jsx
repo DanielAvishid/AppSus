@@ -1,7 +1,9 @@
+import { NotePallete } from '../cmps/NotePallete.jsx'
+
 const { useNavigate } = ReactRouterDOM
 const { useState, useRef } = React
 
-export function NotePreview({ key, note, updateNote, onRemoveNote }) {
+export function NotePreview({ key, note, onAddNote, onRemoveNote }) {
   const [isPalleteOpen, setIsPalleteOpen] = useState(false)
   const [noteBgc, setNoteBgc] = useState(note.style.backgroundColor)
   const [noteUrl, setNoteUrl] = useState(note.info.url)
@@ -12,12 +14,13 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
 
   function onTogglePin(note) {
     note.isPinned = !note.isPinned
-    updateNote(note)
+    onAddNote(note)
   }
 
   function onTogglePallete() {
     setIsPalleteOpen(!isPalleteOpen)
   }
+
   function onNoteClick(noteId) {
     console.log('click on note', noteId)
     navigate(`/note/${noteId}`)
@@ -28,13 +31,13 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
     note.style.backgroundColor = color
     console.log(note.style.backgroundColor)
     setNoteBgc(color)
-    updateNote(note)
+    onAddNote(note)
   }
 
   function onDuplicateNote(note) {
     const copyNote = note
     copyNote.id = ''
-    updateNote(copyNote)
+    onAddNote(copyNote)
   }
 
   function handleFileInputChange(event) {
@@ -45,14 +48,10 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
         const imageUrl = e.target.result
         setNoteUrl(imageUrl) // Display the selected image
         const updatedNote = { ...note, info: { ...note.info, url: imageUrl } }
-        updateNote(updatedNote) // Update the note with the image URL
+        onAddNote(updatedNote) // Update the note with the image URL
       }
       reader.readAsDataURL(file)
     }
-  }
-
-  function check() {
-    console.log('click')
   }
 
   return (
@@ -64,7 +63,11 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
           {note.info.txt && <p className="note-txt">{note.info.txt}</p>}
         </div>
 
-        <section className="note-preview-btns flex space-between">
+        <section
+          className={`note-preview-btns flex space-between ${
+            !note.info.title && !note.info.txt && noteUrl ? 'img-btns' : ''
+          }`}
+        >
           <button onClick={() => onRemoveNote(note)}>
             <span className="material-symbols-outlined">delete</span>
           </button>
@@ -91,40 +94,8 @@ export function NotePreview({ key, note, updateNote, onRemoveNote }) {
             <span className="material-symbols-outlined">more_vert</span>
           </button>
         </section>
-        <div className="check-btn">
-          <button onClick={() => check()}>✌</button>
-        </div>
-        {isPalleteOpen && (
-          <div className="color-pallete flex">
-            <button className="transparent" onClick={() => onChangeNoteBgc('transparent', note)}>
-              ✖
-            </button>
-            <button
-              className="lightblue"
-              onClick={() => onChangeNoteBgc('lightblue', note)}
-            ></button>
-            <button
-              className="lightgreen"
-              onClick={() => onChangeNoteBgc('lightgreen', note)}
-            ></button>
-            <button
-              className="lightpink"
-              onClick={() => onChangeNoteBgc('lightpink', note)}
-            ></button>
-            <button
-              className="lightcoral"
-              onClick={() => onChangeNoteBgc('lightcoral', note)}
-            ></button>
-            <button
-              className="lightsalmon"
-              onClick={() => onChangeNoteBgc('lightsalmon', note)}
-            ></button>
-            <button
-              className="lightseagreen"
-              onClick={() => onChangeNoteBgc('lightseagreen', note)}
-            ></button>
-          </div>
-        )}
+        <img src="/assets/img/checked-icon.png" className="check-btn" />
+        {isPalleteOpen && <NotePallete note={note} onChangeNoteBgc={onChangeNoteBgc} />}
       </div>
     </article>
   )

@@ -1,0 +1,93 @@
+.app-header-notes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 8vh;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container {
+  max-width: 232px;
+  gap: 12px;
+}
+
+.logo {
+  max-height: 44px;
+}
+
+.brand-name {
+  font-family: 'Product Sans', Arial, sans-serif;
+  font-size: 1.5rem;
+  color: rgb(95, 99, 104);
+}
+
+.menu {
+  margin-inline: 10px;
+}
+
+.scrolled {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.search-filter-container {
+  flex-grow: 1;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.search-filter-content {
+  max-width: 720px;
+  border-radius: 8px;
+  background-color: rgb(241, 243, 244);
+  overflow: hidden;
+  height: 46px;
+}
+
+.search-filter-content > button {
+  width: 56px;
+  padding: 0 5px;
+  border: none;
+  background-color: rgb(241, 243, 244);
+}
+
+.search-filter-content > button > span {
+  margin: 3px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.search-filter-content > input {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: inherit; /* Inherit the background color from the parent */
+}
+
+.app-header-notes > nav > button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0;
+  background-color: inherit;
+}
+
+.app-header-notes > nav > button > img {
+  border-radius: 50%;
+  position: absolute;
+  padding: 5px;
+}
+
+/* HOVER */
+
+.search-filter-content > button > span:hover,
+.app-header-notes nav > button:hover {
+  background-color: rgba(95, 99, 104, 0.157);
+}

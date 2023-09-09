@@ -1,0 +1,55 @@
+.color-pallete > button {
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+}
+.color-pallete {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  z-index: 100;
+  width: fit-content;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 5px #b9b9b9;
+  padding: 8px 9px;
+  background-color: white;
+  gap: 5px;
+  border-radius: 8px;
+}
+
+.color-pallete .transparent {
+  background-color: transparent;
+  border: 2px solid #e0e0e0;
+}
+.lightblue {
+  background-color: lightblue;
+  border: 2px solid lightblue;
+}
+.lightgreen {
+  background-color: lightgreen;
+  border: 2px solid lightgreen;
+}
+.lightpink {
+  background-color: lightpink;
+  border: 2px solid lightpink;
+}
+.lightcoral {
+  background-color: lightcoral;
+  border: 2px solid lightcoral;
+}
+.lightsalmon {
+  background-color: lightsalmon;
+  border: 2px solid lightsalmon;
+}
+.lightseagreen {
+  background-color: lightseagreen;
+  border: 2px solid lightseagreen;
+}
+
+/* HOVER */
+
+.color-pallete > button:hover {
+  border: 2px solid black;
+}
