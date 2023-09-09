@@ -17,7 +17,7 @@ export function AppHeaderMail({ filterBy, onSetFilterBy, setIsSidebarOpen, isSid
                     menu
                 </span>
                 <Link to="/">
-                    <img className='logo' src="/assets/img/gmail-logo.png" alt="" />
+                    <img className='logo' src="./././img/gmail-logo.png" alt="" />
                 </Link>
                 <span className="brand-name">Mails</span>
             </div>
@@ -34,7 +34,7 @@ export function AppHeaderMail({ filterBy, onSetFilterBy, setIsSidebarOpen, isSid
                 <span className="material-symbols-outlined">apps</span>
             </button>
             <button className="flex align-center justify-center relative">
-                <img src="/assets/img/dog-1.jpg" alt="" />
+                <img src="./././img/dog-1.jpg" alt="" />
             </button>
             {isMenuOpen && <MenuModal />}
         </nav>

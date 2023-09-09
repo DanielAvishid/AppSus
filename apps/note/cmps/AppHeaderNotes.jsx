@@ -10,7 +10,7 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
       <div className="logo-container flex align-center">
         <span className="material-symbols-outlined menu">menu</span>
         <Link to="/">
-          <img className="logo" src="/assets/img/Google_Keep_logo.png" alt="" />
+          <img className="logo" src="./././img/Google_Keep_logo.png" alt="" />
         </Link>
         <span className="brand-name">Keep</span>
       </div>
@@ -43,7 +43,7 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
           <span className="material-symbols-outlined">apps</span>
         </button>
         <button className="flex align-center justify-center relative">
-          <img src="/assets/img/dog-1.jpg" alt="" />
+          <img src="./././assets/img/dog-1.jpg" alt="" />
         </button>
         {/* <div>
           <NavLink to="/">Home</NavLink>

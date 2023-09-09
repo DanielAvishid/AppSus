@@ -64,9 +64,8 @@ export function NotePreview({ key, note, onAddNote, onRemoveNote }) {
         </div>
 
         <section
-          className={`note-preview-btns flex space-between ${
-            !note.info.title && !note.info.txt && noteUrl ? 'img-btns' : ''
-          }`}
+          className={`note-preview-btns flex space-between ${!note.info.title && !note.info.txt && noteUrl ? 'img-btns' : ''
+            }`}
         >
           <button onClick={() => onRemoveNote(note)}>
             <span className="material-symbols-outlined">delete</span>
@@ -94,7 +93,7 @@ export function NotePreview({ key, note, onAddNote, onRemoveNote }) {
             <span className="material-symbols-outlined">more_vert</span>
           </button>
         </section>
-        <img src="/assets/img/checked-icon.png" className="check-btn" />
+        <img src="assets/img/checked-icon.png" className="check-btn" />
         {isPalleteOpen && <NotePallete note={note} onChangeNoteBgc={onChangeNoteBgc} />}
       </div>
     </article>

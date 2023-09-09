@@ -26,7 +26,7 @@ export function AppHeader() {
                 <span className="material-symbols-outlined">apps</span>
             </button>
             <button className="flex align-center justify-center relative">
-                <img src={"/assets/img/dog-1.jpg"} alt="" />
+                <img src={"./././img/dog-1.jpg"} alt="" />
             </button>
             {isMenuOpen && <MenuModal />}
         </nav>
