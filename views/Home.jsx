@@ -7,7 +7,7 @@ export function Home() {
     return (
         <section className="home">
             <AppHeader />
-            <section className='hero' src=''>
+            <section className='hero'>
                 <div className='hero-content'>
                     <h1>AppSus</h1>
                     <div className='service-container flex align-center'>

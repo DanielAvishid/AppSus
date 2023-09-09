@@ -45,12 +45,6 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
         <button className="flex align-center justify-center relative">
           <img src="./././assets/img/dog-1.jpg" alt="" />
         </button>
-        {/* <div>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/mail/list">Mail</NavLink>
-          <NavLink to="/note">Note</NavLink>
-        </div> */}
       </nav>
     </header>
   )
