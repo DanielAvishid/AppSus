@@ -1,6 +1,6 @@
 import { NotePallete } from '../cmps/NotePallete.jsx'
 
-const { useState, useEffect } = React
+const { useState } = React
 
 export function NoteAdd({ onAddNote, getEmptyNote }) {
   const [note, setNote] = useState(getEmptyNote())
@@ -87,34 +87,17 @@ export function NoteAdd({ onAddNote, getEmptyNote }) {
           name="url"
         />
       </form>
-      {/* TODO: check why they are not seperate (btn-divs) */}
+
       <div className="flex space-between align-center">
         <div className="note-add-btns">
-          {/* <button onClick={() => onRemoveNote(note)}>
-            <span className="material-symbols-outlined">file_copy</span>
-          </button> */}
           <button className={`${pinned}`} onClick={() => onTogglePin()}>
             <span className="material-symbols-outlined">star</span>
           </button>
           <button onClick={() => onTogglePallete()}>
             <span className="material-symbols-outlined">palette</span>
           </button>
-          {/* <input
-            type="file"
-            accept="image/*"
-            style={{ display: 'none' }}
-            onChange={handleFileInputChange}
-            ref={fileInputRef}
-          />
-          <button onClick={() => fileInputRef.current.click()}>
-            <span className="material-symbols-outlined">image</span>
-          </button>
-          <button>
-            <span className="material-symbols-outlined">more_vert</span>
-          </button> */}
         </div>
         <div>
-          {/* TODO: the submission should be execute just whenclick enter or clicking ouside of the form div  */}
           <button className="close-btn" type="submit" form="note-form">
             Close
           </button>

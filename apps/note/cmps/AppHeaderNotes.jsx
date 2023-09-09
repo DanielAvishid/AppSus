@@ -2,7 +2,6 @@
 import { MenuModal } from '../../../cmps/MenuModal.jsx'
 
 const { Link, NavLink } = ReactRouterDOM
-const { useState } = React
 
 export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,14 +16,20 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
       </div>
       <div className="search-filter-container">
         <div className="search-filter-content flex space-between align-center">
-          <button>
-            <span className="material-symbols-outlined">search</span>
-          </button>
+          <Link to="/note/search">
+            <button>
+              <span className="material-symbols-outlined">search</span>
+            </button>
+          </Link>
+
           {/* <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} /> */}
           <input type="text" placeholder="Search" />
-          <button>
-            <span className="material-symbols-outlined">close</span>
-          </button>
+
+          <Link to="/note/list">
+            <button>
+              <span className="material-symbols-outlined">close</span>
+            </button>
+          </Link>
         </div>
       </div>
       <nav className="flex">
@@ -40,7 +45,12 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
         <button className="flex align-center justify-center relative">
           <img src="/assets/img/dog-1.jpg" alt="" />
         </button>
-        {isMenuOpen && <MenuModal />}
+        {/* <div>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/mail/list">Mail</NavLink>
+          <NavLink to="/note">Note</NavLink>
+        </div> */}
       </nav>
     </header>
   )

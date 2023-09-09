@@ -47,14 +47,14 @@
   height: 46px;
 }
 
-.search-filter-content > button {
+.search-filter-content button {
   width: 56px;
   padding: 0 5px;
   border: none;
   background-color: rgb(241, 243, 244);
 }
 
-.search-filter-content > button > span {
+.search-filter-content button > span {
   margin: 3px;
   padding: 8px;
   cursor: pointer;
@@ -87,7 +87,7 @@
 
 /* HOVER */
 
-.search-filter-content > button > span:hover,
+.search-filter-content button > span:hover,
 .app-header-notes nav > button:hover {
   background-color: rgba(95, 99, 104, 0.157);
 }
