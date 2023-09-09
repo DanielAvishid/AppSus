@@ -1,9 +1,15 @@
 .SidebarMail {
     position: relative;
     font-family: "Google Sans", Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
-    height: 92vh;
-    min-width: 280px;
     background-color: #f6f8fc;
+    height: 92vh;
+}
+
+.SidebarMail.open,
+.SidebarMail.hover {
+    z-index: 20;
+    width: 280px;
+    transition: width 3s ease-in-out;
 }
 
 .SidebarMail .compose-title {
@@ -74,34 +80,4 @@
 .SidebarMail .compose-btn .material-symbols-outlined {
     font-size: 1.7rem;
     margin-inline-end: 0px;
-}
-
-.SidebarMail.close {
-    min-width: 80px;
-    width: 80px;
-}
-
-.SidebarMail.close . {
-    min-width: 80px;
-    width: 80px;
-}
-
-.SidebarMail.close.hover {
-    min-width: 280px;
-    left: 0px;
-}
-
-.SidebarMail.close .inbox-btn,
-.SidebarMail.close .starred-btn,
-.SidebarMail.close .sent-btn,
-.SidebarMail.close .draft-btn,
-.SidebarMail.close .trash-btn {
-    height: 2.2rem;
-    font-size: 1rem;
-    margin: 0;
-    margin-inline-end: 1.3rem;
-    padding-inline-start: 2rem;
-    border-end-end-radius: 1.3rem;
-    border-start-end-radius: 1.3rem;
-    cursor: pointer;
 }

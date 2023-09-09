@@ -1,1 +1,13 @@
- /* note index */
+.sidebar-container {
+    height: 92vh;
+    width: 80px;
+    /* transition: width 0.5s ease-in-out; */
+}
+
+.sidebar-container.open {
+    width: 280px;
+}
+
+.sidebar-container.hover {
+    width: 280px;
+}

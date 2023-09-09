@@ -1,5 +1,5 @@
 /* Setup */
-
+@import url("setup/typography.css");
 @import './setup/variables.css';
 /* @import './setup/fonts.css'; */
 
@@ -30,6 +30,7 @@
 
 @import './cmps/UserMsg.css';
 @import './cmps/AppHeader.css';
+@import './cmps/MenuModal.css';
 
 /* @import './apps/mail/cmps/MailList.css'; */
 

@@ -1,8 +1,10 @@
 // import { MailFilter } from '../cmps/MailFilter.jsx'
+import { MenuModal } from '../../../cmps/MenuModal.jsx'
 
-const { Link } = ReactRouterDOM
+const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
   return (
     <header className="app-header-notes flex align-center">
       <div className="logo-container flex align-center">
@@ -31,12 +33,24 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
         </div>
       </div>
       <nav className="flex">
-        <button className="flex align-center justify-center">
+        <div className='flex align-center'>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+        </div>
+        <button
+          className="flex align-center justify-center"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <span className="material-symbols-outlined">apps</span>
         </button>
         <button className="flex align-center justify-center relative">
           <img src="/assets/img/dog-1.jpg" alt="" />
         </button>
+        {/* <div>
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/mail/list">Mail</NavLink>
+          <NavLink to="/note">Note</NavLink>
+        </div> */}
       </nav>
     </header>
   )

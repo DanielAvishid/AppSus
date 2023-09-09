@@ -1,12 +1,19 @@
 header {
     background-color: #f6f8fc;
     border-bottom: 2px solid white;
+    max-height: 8vh;
 }
 
 .app-header {
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
+    align-items: center;
+}
+
+.app-header .logo-container h3 {
+    font-size: 30px;
+    font-family: madrigal;
 }
 
 .app-header .logo-container {
@@ -29,4 +36,19 @@ nav a.active {
     color: darkblue;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.app-header>nav>button {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0;
+    background-color: inherit;
+}
+
+.app-header>nav>button>img {
+    border-radius: 50%;
+    position: absolute;
+    padding: 5px;
 }

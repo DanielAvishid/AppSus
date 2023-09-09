@@ -9,7 +9,7 @@ export function MailIndex() {
     const [mails, setMails] = useState(null)
     const [unreadMails, setUnreadMails] = useState(null)
     const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+    const [isSidebarOpen, setIsSidebarOpen] = useState(true)
     const [isSidebarHover, setIsSidebarHover] = useState(false)
     const [sortBy, setSortBy] = useState(mailService.getDefaultSort())
 
@@ -28,7 +28,6 @@ export function MailIndex() {
         if (!mails) return
         if (sortBy.date) {
             const sorted = sortByDate()
-            console.log(sorted)
             if (!sortBy.descendD) {
                 setMails([...sorted])
             } else {
@@ -37,7 +36,6 @@ export function MailIndex() {
             }
         } else if (sortBy.subject) {
             const sorted = sortBySubject()
-            console.log(sorted)
             if (!sortBy.descendS) {
                 setMails([...sorted])
             } else {
@@ -130,6 +128,16 @@ export function MailIndex() {
         setFilterBy(prevFilter => ({ ...prevFilter, status: sent }))
     }
 
+    function sidebarIsOpen(isSidebarOpen) {
+        if (isSidebarOpen) return 'open'
+        else return ''
+    }
+
+    function sidebarIsHover(isSidebarHover) {
+        if (isSidebarHover) return 'hover'
+        else return ''
+    }
+
     if (!mails) return <div >Loading...</div>
     return (
         <section className="mail-index">
@@ -139,7 +147,7 @@ export function MailIndex() {
                 filterBy={filterBy}
                 onSetFilterBy={onSetFilterBy} />
             <div className="flex">
-                <div
+                <div className={`sidebar-container ${sidebarIsHover} ${sidebarIsOpen(isSidebarOpen)}`}
                     onMouseEnter={() => setIsSidebarHover(true)}
                     onMouseLeave={() => setIsSidebarHover(false)}>
                     <SidebarMail
