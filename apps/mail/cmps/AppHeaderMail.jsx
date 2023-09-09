@@ -17,7 +17,7 @@ export function AppHeaderMail({ filterBy, onSetFilterBy, setIsSidebarOpen, isSid
                     menu
                 </span>
                 <Link to="/">
-                    <img className='logo' src="./././img/gmail-logo.png" alt="" />
+                    <img className='logo' alt="" />
                 </Link>
                 <span className="brand-name">Mails</span>
             </div>

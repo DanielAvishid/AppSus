@@ -7,7 +7,7 @@ export function Home() {
     return (
         <section className="home">
             <AppHeader />
-            <section className='hero'>
+            <section className='hero' src=''>
                 <div className='hero-content'>
                     <h1>AppSus</h1>
                     <div className='service-container flex align-center'>
@@ -15,7 +15,7 @@ export function Home() {
                         <p className='flex align-center'>Keep Services
                             <img onClick={() => navigate('/note')}
                                 className="logo logo-keep"
-                                src='./img/hero.jpg'
+                                src='./././img/Google_Keep_logo.png'
                             />
                         </p>
                     </div>
