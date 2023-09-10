@@ -9,9 +9,9 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
     const [isDraft, setIsDraft] = useState(false)
     const [isTrash, setIsTrash] = useState(false)
 
-    useEffect(() => {
-        onSetFilterBy(filterByToEdit)
-    }, [filterByToEdit])
+    // useEffect(() => {
+    //     onSetFilterBy(filterByToEdit)
+    // }, [filterByToEdit])
 
     useEffect(() => {
         if (filterBy.status === 'sent') {

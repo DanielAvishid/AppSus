@@ -1,5 +1,5 @@
 import { mailService } from '../services/mail.service.js'
-import { SidebarMail } from '../cmps/SidebarMail.jsx'
+import { SidebarMail } from '../cmps/SidebarM.jsx'
 import { AppHeaderMail } from '../cmps/AppHeaderMail.jsx'
 
 const { useState, useEffect } = React
