@@ -1,5 +1,5 @@
-import { MailPreview } from './MailPreview.jsx'
-import { MailSort } from './MailSort.jsx'
+import { MailPreview } from 'MailPreview.jsx'
+import { MailSort } from 'MailSort.jsx'
 
 const { useNavigate } = ReactRouterDOM
 const { Outlet, useOutletContext } = ReactRouterDOM
