@@ -1,12 +1,48 @@
 // import { MailFilter } from '../cmps/MailFilter.jsx'
 import { MenuModal } from '../../../cmps/MenuModal.jsx'
 
-const { useState } = React
+const { useState, useRef } = React
 
 const { Link, NavLink } = ReactRouterDOM
 
 export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
+  const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
+  const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const inputRef = useRef('')
+
+  function handleChange({ target }) {
+    let field = target.name
+    let value = target.value
+    if (field === 'to' && value) {
+      setFilterByToEdit(prevFilter => ({
+        ...prevFilter,
+        to: '',
+        from: '',
+        status: 'sent',
+        [field]: value,
+      }))
+    } else if (field === 'from') {
+      setFilterByToEdit(prevFilter => ({
+        ...prevFilter,
+        to: '',
+        from: '',
+        status: 'inbox',
+        [field]: value,
+      }))
+    }
+    setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
+  }
+  function handleKeyPress(ev) {
+    if (ev.key === 'Enter') onSubmitFilter()
+  }
+
+  function onSubmitFilter() {
+    setIsFilterOpen(false)
+    onSetFilterBy(filterByToEdit)
+  }
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <header className="app-header-notes flex align-center">
       <div className="logo-container flex align-center">
@@ -18,14 +54,25 @@ export function AppHeaderNotes({ filterBy, onSetFilterBy }) {
       </div>
       <div className="search-filter-container">
         <div className="search-filter-content flex space-between align-center">
-          <Link to="/note/search">
+          <Link
+            to={inputRef.current.value ? `/note/search/${inputRef.current.value}` : '/note/search'}
+            className="flex"
+          >
             <button>
               <span className="material-symbols-outlined">search</span>
             </button>
-          </Link>
 
-          {/* <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} /> */}
-          <input type="text" placeholder="Search" />
+            {/* <MailFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} /> */}
+            <input
+              ref={inputRef}
+              className="search-input"
+              onChange={handleChange}
+              type="text"
+              placeholder="Search"
+              name="txt"
+              onKeyDown={handleKeyPress}
+            />
+          </Link>
 
           <Link to="/note/list">
             <button>

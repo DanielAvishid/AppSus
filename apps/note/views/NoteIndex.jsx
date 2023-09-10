@@ -60,12 +60,6 @@ export function NoteIndex() {
       <AppHeaderNotes />
       <div className="flex">
         <SidebarNotes />
-        {/* <NoteList
-          notes={notes}
-          onRemoveNote={onRemoveNote}
-          getEmptyNote={getEmptyNote}
-          onAddNote={onAddNote}
-        /> */}
         <Outlet context={[notes, onRemoveNote, getEmptyNote, onAddNote]} />
       </div>
     </section>

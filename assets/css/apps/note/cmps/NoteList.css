@@ -2,6 +2,7 @@
 .other-container {
   columns: 6 240px;
   /* column-gap: 1rem; */
+  margin-right: 1rem;
 }
 
 .notes-container p {
@@ -11,6 +12,10 @@
   font-size: 0.7rem;
   font-weight: 500;
   color: rgb(95, 99, 104);
+}
+
+.filter-section {
+  margin-top: 1rem;
 }
 
 /* .pinned-container,

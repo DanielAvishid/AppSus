@@ -61,7 +61,7 @@
   border-radius: 50%;
 }
 
-.search-filter-content > input {
+.search-filter-content input {
   border: none;
   outline: none;
   padding: 0;

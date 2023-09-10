@@ -22,13 +22,17 @@
 .note-preview-info > .note-txt {
   word-wrap: break-word;
   overflow-wrap: break-word;
+  color: #202124;
 }
 
 .note-preview-info > .note-title {
+  font-weight: 500;
   padding: 12px 16px 0;
+  font-size: 1.2rem;
 }
 
 .note-preview-info > .note-txt {
+  font-size: 1rem;
   margin: 0;
   padding: 12px 16px;
 }

@@ -7,7 +7,9 @@ import { MailIndex } from './apps/mail/views/MailIndex.jsx'
 import { MailCompose } from './apps/mail/cmps/MailCompose.jsx'
 import { NoteIndex } from './apps/note/views/NoteIndex.jsx'
 import { NoteList } from './apps/note/cmps/NoteList.jsx'
-import { NoteFilter } from './apps/note/cmps/NoteFilter.jsx'
+import { NoteImgFilter } from './apps/note/cmps/NoteImgFilter.jsx'
+import { NoteTextOnlyFilter } from './apps/note/cmps/NoteTextOnlyFilter.jsx'
+import { NoteTxtFilter } from './apps/note/cmps/NoteTxtFilter.jsx'
 import { NoteSearch } from './apps/note/cmps/NoteSearch.jsx'
 import { NoteDetails } from './apps/note/views/NoteDetails.jsx'
 import { MailList } from './apps/mail/cmps/MailList.jsx'
@@ -33,10 +35,9 @@ export function App() {
             <Route path=":noteId" element={<NoteDetails />} />
             <Route path="list" element={<NoteList />} />
             <Route path="search" element={<NoteSearch />} />
-            <Route path="list" element={<NoteFilter />} />
-            {/* <Route path="image" element={<NoteFilter />} />
-              <Route path="text" element={<NoteFilter />} />
-            </Route> */}
+            <Route path="search/image" element={<NoteImgFilter />} />
+            <Route path="search/text" element={<NoteTextOnlyFilter />} />
+            <Route path="search/:textInput" element={<NoteTxtFilter />} />
           </Route>
         </Routes>
       </section>

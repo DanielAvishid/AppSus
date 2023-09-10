@@ -13,7 +13,7 @@ export function NoteDetails() {
   const navigate = useNavigate()
 
   function onExitModal() {
-    navigate('/note')
+    navigate('/note/list')
   }
 
   useEffect(() => {
