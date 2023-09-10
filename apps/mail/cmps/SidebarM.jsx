@@ -1,7 +1,7 @@
 const { Link, NavLink } = ReactRouterDOM
 const { useState, useEffect } = React
 
-export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpen, isSidebarHover }) {
+export function SidebarM({ unreadMails, onSetFilterBy, filterBy, isSidebarOpen, isSidebarHover }) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
     const [isInbox, setIsInbox] = useState(true)
     const [isStarred, setIsStarred] = useState(false)
@@ -9,9 +9,9 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
     const [isDraft, setIsDraft] = useState(false)
     const [isTrash, setIsTrash] = useState(false)
 
-    // useEffect(() => {
-    //     onSetFilterBy(filterByToEdit)
-    // }, [filterByToEdit])
+    useEffect(() => {
+        onSetFilterBy(filterByToEdit)
+    }, [filterByToEdit])
 
     useEffect(() => {
         if (filterBy.status === 'sent') {

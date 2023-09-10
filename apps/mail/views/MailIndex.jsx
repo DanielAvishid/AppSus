@@ -1,5 +1,5 @@
 import { mailService } from '../services/mail.service.js'
-import { SidebarMail } from '../cmps/SidebarM.jsx'
+import { SidebarM } from '../cmps/SidebarM.jsx'
 import { AppHeaderMail } from '../cmps/AppHeaderMail.jsx'
 
 const { useState, useEffect } = React
@@ -148,7 +148,7 @@ export function MailIndex() {
                 onSetFilterBy={onSetFilterBy} />
             <div className="flex">
                 <div className={`sidebar-container ${sidebarIsHover} ${sidebarIsOpen(isSidebarOpen)}`} onMouseEnter={() => setIsSidebarHover(true)} onMouseLeave={() => setIsSidebarHover(false)}>
-                    <SidebarMail
+                    <SidebarM
                         isSidebarOpen={isSidebarOpen}
                         isSidebarHover={isSidebarHover}
                         onSetFilterBy={onSetFilterBy}
