@@ -148,8 +148,7 @@ export function MailIndex() {
                 onSetFilterBy={onSetFilterBy} />
             <div className="flex">
                 <div className={`sidebar-container ${sidebarIsHover} ${sidebarIsOpen(isSidebarOpen)}`} onMouseEnter={() => setIsSidebarHover(true)} onMouseLeave={() => setIsSidebarHover(false)}>
-                    <SidebarM
-                        isSidebarOpen={isSidebarOpen}
+                    <SidebarM isSidebarOpen={isSidebarOpen}
                         isSidebarHover={isSidebarHover}
                         onSetFilterBy={onSetFilterBy}
                         unreadMails={unreadMails}
