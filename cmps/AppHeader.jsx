@@ -1,4 +1,4 @@
-import { MenuModal } from '../../../cmps/MenuModal.jsx'
+import { MenuModal } from 'MenuModal.jsx'
 
 const { Link, NavLink } = ReactRouterDOM
 const { useState } = React
