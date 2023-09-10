@@ -153,7 +153,6 @@ export function MailIndex() {
                         isSidebarHover={isSidebarHover}
                         onSetFilterBy={onSetFilterBy}
                         unreadMails={unreadMails}
-                        setFilterSent={setFilterSent}
                         filterBy={filterBy} />
                 </div>
                 <Outlet context={[mails, onComposeMail, onRemoveMail, setIsRead, filterBy, onSetFilterBy, sortBy, onSetSortBy, setIsStar]} />

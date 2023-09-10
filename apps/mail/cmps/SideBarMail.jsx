@@ -59,8 +59,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
             </Link>
 
             <section>
-                <div
-                    className={`flex space-between inbox-btn ${setActiveClass(isInbox)}`}
+                <div className={`flex space-between inbox-btn ${setActiveClass(isInbox)}`}
                     onClick={() => {
                         setActiveStatesFalse()
                         setIsInbox(true)
@@ -72,8 +71,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
                     </div>
                     {(isSidebarHover || isSidebarOpen) && <span className='unread-mails'>{unreadMails}</span>}
                 </div>
-                <div
-                    className={`flex space-between starred-btn ${setActiveClass(isStarred)}`}
+                <div className={`flex space-between starred-btn ${setActiveClass(isStarred)}`}
                     onClick={() => {
                         setActiveStatesFalse()
                         setIsStarred(true)
@@ -84,8 +82,7 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
                         {(isSidebarHover || isSidebarOpen) && <span>Starred</span>}
                     </div>
                 </div>
-                <div
-                    className={`flex space-between sent-btn ${setActiveClass(isSent)}`}
+                <div className={`flex space-between sent-btn ${setActiveClass(isSent)}`}
                     onClick={() => {
                         setActiveStatesFalse()
                         setIsSent(true)
@@ -107,8 +104,8 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
                         <span className="material-symbols-outlined">note</span>
                         <span>Drafts</span>
                     </div>
-                </div> */}
-                {/* <div
+                </div>
+                <div
                     className={`flex space-between trash-btn ${setActiveClass(isTrash)}`}
                     onClick={() => {
                         setActiveStatesFalse()
