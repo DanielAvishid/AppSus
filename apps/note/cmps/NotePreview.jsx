@@ -21,10 +21,12 @@ export function NotePreview({ key, note, onAddNote, onRemoveNote }) {
     setIsPalleteOpen(!isPalleteOpen)
   }
 
-  function onNoteClick(noteId) {
-    console.log('click on note', noteId)
-    navigate(`/note/${noteId}`)
-  }
+  // onClick={() => onNoteClick(note.id)}
+
+  // function onNoteClick(noteId) {
+  //   console.log('click on note', noteId)
+  //   navigate(`/note/${noteId}`)
+  // }
 
   function onChangeNoteBgc(color, note) {
     console.log(note.style.backgroundColor)
@@ -57,7 +59,7 @@ export function NotePreview({ key, note, onAddNote, onRemoveNote }) {
   return (
     <article key={key} className="note-preview-container">
       <div className={`note-preview flex column justify-center ${noteBgc}`}>
-        <div className="note-preview-info" onClick={() => onNoteClick(note.id)}>
+        <div className="note-preview-info">
           {noteUrl && <img src={noteUrl} alt="user-pic" />}
           {note.info.title && <h4 className="note-title">{note.info.title}</h4>}
           {note.info.txt && <p className="note-txt">{note.info.txt}</p>}

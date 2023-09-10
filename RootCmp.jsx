@@ -11,7 +11,7 @@ import { NoteImgFilter } from './apps/note/cmps/NoteImgFilter.jsx'
 import { NoteTextOnlyFilter } from './apps/note/cmps/NoteTextOnlyFilter.jsx'
 import { NoteTxtFilter } from './apps/note/cmps/NoteTxtFilter.jsx'
 import { NoteSearch } from './apps/note/cmps/NoteSearch.jsx'
-import { NoteDetails } from './apps/note/views/NoteDetails.jsx'
+// import { NoteDetails } from './apps/note/views/NoteDetails.jsx'
 import { MailList } from './apps/mail/cmps/MailList.jsx'
 import { MailDetails } from './apps/mail/views/MailDetails.jsx'
 
@@ -32,7 +32,7 @@ export function App() {
             </Route>
           </Route>
           <Route path="/note" element={<NoteIndex />}>
-            <Route path=":noteId" element={<NoteDetails />} />
+            {/* <Route path=":noteId" element={<NoteDetails />} /> */}
             <Route path="list" element={<NoteList />} />
             <Route path="search" element={<NoteSearch />} />
             <Route path="search/image" element={<NoteImgFilter />} />
