@@ -120,8 +120,6 @@ export function SidebarMail({ unreadMails, onSetFilterBy, filterBy, isSidebarOpe
                         <span>Trash</span>
                     </div>
                 </div> */}
-
-
             </section>
         </section>
     )
