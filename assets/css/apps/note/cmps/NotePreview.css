@@ -85,6 +85,6 @@
 }
 
 .note-preview:hover > .note-preview-btns,
-.note-preview:hover > .check-btn {
+.note-preview-container:hover > .check-btn {
   opacity: 1;
 }
