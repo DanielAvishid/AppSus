@@ -18,9 +18,10 @@
 
 .hero {
     position: relative;
-    text-align: center;
+    width: 100vw;
     height: 92vh;
-    display: inline-block;
+    text-align: center;
+    overflow: hidden;
 }
 
 .hero .hero-content {

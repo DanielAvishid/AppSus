@@ -7,8 +7,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 82px;
-    max-height: 8vh;
+    min-height: 0px;
+    min-height: 8vh;
     background-color: #f6f8fc;
     border-bottom: none;
 }
