@@ -1,14 +1,16 @@
 header {
     background-color: #f6f8fc;
     border-bottom: 2px solid white;
-    height: 8vh;
 }
 
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
     align-items: center;
+    min-height: 82px;
+    max-height: 8vh;
+    background-color: #f6f8fc;
+    border-bottom: none;
 }
 
 .app-header .logo-container h3 {
