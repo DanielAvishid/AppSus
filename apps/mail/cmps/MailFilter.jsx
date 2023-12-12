@@ -1,4 +1,4 @@
-import { FilterOptions } from '../../mail/cmps/FilterOptions.jsx'
+import { FilterOptions } from 'FilterOptions.jsx'
 
 const { useState, useEffect, useRef } = React
 

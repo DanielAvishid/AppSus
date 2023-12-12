@@ -1,4 +1,4 @@
-import { MailFilter } from '../cmps/MailFilter.jsx'
+import { MailFilter } from 'MailFilter.jsx'
 import { MenuModal } from '../../../cmps/MenuModal.jsx'
 
 const { Link, NavLink } = ReactRouterDOM

@@ -1,5 +1,5 @@
-import { mailService } from '../../mail/services/mail.service.js'
-import { SidebarMail } from '../cmps/SidebarMail.jsx'
+import { mailService } from '../services/mail.service.js'
+import { SidebarM } from '../cmps/SidebarM.jsx'
 import { AppHeaderMail } from '../cmps/AppHeaderMail.jsx'
 
 const { useState, useEffect } = React
@@ -147,15 +147,11 @@ export function MailIndex() {
                 filterBy={filterBy}
                 onSetFilterBy={onSetFilterBy} />
             <div className="flex">
-                <div className={`sidebar-container ${sidebarIsHover} ${sidebarIsOpen(isSidebarOpen)}`}
-                    onMouseEnter={() => setIsSidebarHover(true)}
-                    onMouseLeave={() => setIsSidebarHover(false)}>
-                    <SidebarMail
-                        isSidebarOpen={isSidebarOpen}
+                <div className={`sidebar-container ${sidebarIsHover} ${sidebarIsOpen(isSidebarOpen)}`} onMouseEnter={() => setIsSidebarHover(true)} onMouseLeave={() => setIsSidebarHover(false)}>
+                    <SidebarM isSidebarOpen={isSidebarOpen}
                         isSidebarHover={isSidebarHover}
                         onSetFilterBy={onSetFilterBy}
                         unreadMails={unreadMails}
-                        setFilterSent={setFilterSent}
                         filterBy={filterBy} />
                 </div>
                 <Outlet context={[mails, onComposeMail, onRemoveMail, setIsRead, filterBy, onSetFilterBy, sortBy, onSetSortBy, setIsStar]} />
