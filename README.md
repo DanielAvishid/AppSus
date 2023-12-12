@@ -11,6 +11,10 @@
 
 AppSus is a web application created during the Coding Academy's web development course project submissions. Mimicking Google Keep and Gmail applications, it stands as our first-ever React project, developed with just four days of learning. This endeavor also marked our initial exploration into collaborative development using Git, with contributions from DanielAvishid and OfirKaspi.
 
+## View AppSus in Action
+
+To experience the full functionality and design of AppSus, you can visit the live site [here](https://danielavishid.github.io/AppSus/#/). Explore the features, interact with the application, and get a firsthand look at how AppSus simplifies collaborative project management. We welcome your feedback and hope you enjoy using Workit!
+
 ## Collaborators
 
 - [Ofir Kaspi (GitHub)](https://github.com/OfirKaspi)
